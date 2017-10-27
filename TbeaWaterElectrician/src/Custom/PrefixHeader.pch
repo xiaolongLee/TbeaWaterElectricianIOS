@@ -1,0 +1,190 @@
+//
+//  PrefixHeader.pch
+//  CcwbNews
+//
+//  Created by xyy520 on 16/5/17.
+//  Copyright © 2016年 谢 毅. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+#ifdef __OBJC__
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+//*********************************
+#import <Foundation/Foundation.h>
+#import <AVFoundation/AVFoundation.h>
+#import <UIKit/UIKit.h>
+#import "Header.h"
+#import "AFHTTPSessionManager.h"
+#import "AddInterface.h"
+#import "Interface.h"
+#import "ActionDelegate.h"
+#import "MBProgressHUD+Add.h"
+#import "AppDelegate.h"
+#import "Enum_set.h"
+#import "SMPageControl.h"
+#import "UIImageView+AFNetworking.h"
+#import "UIImage+AFNetworking.h"
+#import "MBProgressHUD.h"
+#import "RequestInterface.h"
+#import "UIDevice+IdentifierAddition.h"
+#import "CLBottomCommentView.h"
+#import "CustomColor.h"
+#import "Masonry.h"
+#import "MJRefresh.h"
+#import "UIMyLabel.h"
+//#import "LoginView.h"
+#import "LCTabBarController.h"
+//#import "RegiestView.h"
+#import "HYSegmentControl.h"
+#import "SearchPageTopView.h"
+#import "GoodsDetailBottomView.h"
+#import "SelectSpecificationView.h"
+#import "NearByGoodsDetailViewController.h"
+#import "NearByProductPageCellView.h"
+#import "NearByJXSPageViewCellView.h"
+#import "NearByCompanyMsgView.h"
+#import "MeOrderCellView.h"
+#import "MySettingViewController.h"
+#import "MyPersonViewController.h"
+#import "MyOrderViewController.h"
+#import "MyAccountSafeViewController.h"
+#import "NearByJXSDetailViewController.h"
+#import "BXTabBarController.h"
+#import "HomePageViewController.h"
+#import "NearByPageViewController.h"
+#import "ReceiveActivityViewController.h"
+#import "MyPageViewController.h"
+#import "BXExtensions.h"
+#import "UserInfo.h"
+#import "DiliWeiZhi.h"
+#import "JPhotoMagenage.h"
+#import "HomePageViewController.h"
+#import "LoginViewController.h"
+//#import "RegiestViewController.h"
+#import "SelectCityViewController.h"
+#import "MyMessageViewController.h"
+#import "MyWalletViewController.h"
+#import "CustomTabBarController.h"
+#import "ScanCodeViewController.h"
+#import "ScanQRCodeViewController.h"
+#import "ScanHistoryViewController.h"
+#import "ScanProductCellView.h"
+#import "ScanOrginDetailViewController.h"
+#import "ScanRebateViewController.h"
+#import "XYW8IndicatorView.h"
+#import "SearchPageViewController.h"
+#import "ScanInputQRCodeViewController.h"
+#import "JiFenTiXianViewController.h"
+#import "MyTiXianQRCodeViewController.h"
+#import "MyTiXianDoneViewController.h"
+#import "SearchResultViewController.h"
+#import "CustomQustionViewController.h"
+#import "ProductCellSelectItemView.h"
+#import "MyCollectionViewController.h"
+#import "ModifyBindingTelViewController.h"
+#import "ModifyBindingNewTelViewController.h"
+#import "ModifyBindingDoneViewController.h"
+#import "ModifyPwdViewController.h"
+#import "ReceiveAddNewAddrViewController.h"
+#import "ReceiveAddrViewController.h"
+#import "ModifyPersonInfoViewController.h"
+#import "ModifyPwdDoneViewController.h"
+#import "SelectAddressViewController.h"
+#import "WebViewContentViewController.h"
+#import "WebViewContent.h"
+#import "ShoppingCarCellView.h"
+#import "MyShoppingCarViewController.h"
+#import "MyInputOrderViewController.h"
+#import "MyOrderDaoFuViewController.h"
+#import "MyReportListViewController.h"
+#import "UserLocationObject.h"
+#import "FYAlbumManager.h"
+#import "MyReportDetailViewController.h"
+#import "InComeDetailViewController.h"
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
+#import "ScanReportCodeViewController.h"
+#import "GoodsPingJiaCellView.h"
+#import "MyTiXianHistoryListViewController.h"
+#import "RegiestViewStartController.h"
+#import "SelectAddrNotAddressViewController.h"
+#import "RegiestSuccessViewController.h"
+#import "CertificationViewController.h"
+#import "RegiestSuccessViewController.h"
+#import "EvaluationHeaderView.h"
+#import "EvaluationViewController.h"
+#import "EvaluationCommodityListViewController.h"
+#import "CertificationInfoViewController.h"
+#import "MyTixianQRCodeInfoViewController.h"
+#import <UMSocialCore/UMSocialCore.h>
+#import "ForgetPasswdGetVerifyCodeViewController.h"
+#import "ForGetPasswdSetNewPwdViewController.h"
+#import "MyOrderDetailViewController.h"
+
+#import <BaiduMapAPI_Location/BMKLocationComponent.h>
+#define APP_KEY @"AijaDHgBnG7q9GEUwBQVsNAv"
+//*************************************
+//定义变量
+//#define URLHeader @"http://www.u-shang.net/enginterface/index.php"
+//#define URLPicHeader @"http://www.u-shang.net"
+
+#define URLHeader @"http://121.42.193.154:6698/enginterface/index.php"
+#define URLPicHeader @"http://121.42.193.154:6698"
+
+//#define URLHeader @"http://www.u-shang.net/testinterface/index.php/Index"
+
+//
+#define TYImageText @"imagetext"  //图文 视频，直播，活动，发现
+#define TYImage @"image"     //推广，广告
+#define TYSudden @"sudden"    //突发
+#define TYHorizontal  @"horizontal"  //晚报说
+#define TYNormal  @"normal"  //常规新闻
+#define TYImageArray @"imagearray"   // 图集
+#define TYActivity @"activity"   // 图集
+#define TYStock @"stock"	// 表示财经证券类型
+
+
+#endif /* PrefixHeader_pch */
+
+/**
+ *  弱引用
+ */
+#define BXWeakSelf __weak typeof(self) weakSelf = self;
+
+#define BXNoteCenter [NSNotificationCenter defaultCenter]
+
+#define BXScreenH [UIScreen mainScreen].bounds.size.height
+#define BXScreenW [UIScreen mainScreen].bounds.size.width
+#define BXScreenBounds [UIScreen mainScreen].bounds
+#define BXKeyWindow [UIApplication sharedApplication].keyWindow
+
+// 随机色
+#define BXRandomColor BXColor(arc4random_uniform(256), arc4random_uniform(256), arc4random_uniform(256))
+
+// 设置颜色
+#define BXColor(r, g, b) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:1.0]
+
+#define BXAlphaColor(r, g, b, a) [UIColor colorWithRed:(r)/255.0 green:(g)/255.0 blue:(b)/255.0 alpha:a]
+//保单显示文字颜色
+#define The_Prompt_Color_Nine [[UIColor alloc]initWithRed:153/255.0 green:153/255.0 blue:153/255.0 alpha:1]
+#define The_Prompt_Color_Six [[UIColor alloc]initWithRed:102/255.0 green:102/255.0 blue:102/255.0 alpha:1]
+#define The_Prompt_Color_Three [[UIColor alloc]initWithRed:51/255.0 green:51/255.0 blue:51/255.0 alpha:1]
+
+#define The_MainColor BXColor(51, 153, 255)
+#define BXGlobalBg BXColor(242, 242, 242)
+// 自定义log
+#ifdef DEBUG
+
+#define BXLog(...) NSLog(@"%s %d \n %@\n\n",__func__,__LINE__,[NSString stringWithFormat:__VA_ARGS__])
+
+#else
+
+#define BXLog(...)
+
+#endif
+
+
+#endif /* PrefixHeader_pch */
+
+
