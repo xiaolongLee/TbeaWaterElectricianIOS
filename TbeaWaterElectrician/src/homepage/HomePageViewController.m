@@ -530,6 +530,17 @@
 {
 	UIView *viewtemp = sender.view;
 //	int tagnow = (int)viewtemp.tag-6890;
+    
+    if(![AddInterface judgeislogin])
+    {
+        [self addloginview];
+    }
+    else
+    {
+        MyMessageViewController *message = [[MyMessageViewController alloc] init];
+        [self.navigationController pushViewController:message animated:YES];
+    }
+    
 	
 }
 

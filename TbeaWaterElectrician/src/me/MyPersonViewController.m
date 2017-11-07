@@ -202,6 +202,11 @@
 			labelvalue.text = @"添加/修改";
 			[cell.contentView addSubview:labelvalue];
 			break;
+        case 6:
+            labeltitle.text = @"公司名称";
+            labelvalue.text = [dicuserinfo objectForKey:@"companyname"];
+            [cell.contentView addSubview:labelvalue];
+            break;
 			
 			
 	}

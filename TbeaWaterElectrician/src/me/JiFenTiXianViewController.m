@@ -209,38 +209,49 @@
 
 -(void)createqrcode:(id)sender
 {
-	UITextField *textfield = [self.view viewWithTag:EnMeTiXianMoneyTextFieldTag];
-	[textfield resignFirstResponder];
-	if([textfield.text length]==0)
-	{
-		[MBProgressHUD showError:@"请填写要提现的金额" toView:app.window];
-	}
-	else if(![AddInterface isValidatenumber:textfield.text])
-	{
-		[MBProgressHUD showError:@"只能输入数字" toView:app.window];
-	}
-	else
-	{
-		float nowmoney = [[[dicmymoney objectForKey:@"mymoneyinfo"] objectForKey:@"canexchangemoney"] floatValue];
-		float inputmoney = [textfield.text floatValue];
-		
-		if(nowmoney<inputmoney)
-		{
-			[MBProgressHUD showError:@"你填写的提现金额不能超过可以提现的金额！" toView:app.window];
-		}
-		else if(inputmoney>0)
-		{
-			MyTiXianQRCodeViewController *tixiancode = [[MyTiXianQRCodeViewController alloc] init];
-			tixiancode.tixianmoney = textfield.text;
-			tixiancode.strdistribuid = selectdistribuid;
-			[self.navigationController pushViewController:tixiancode animated:YES];
-			
-		}
-		else
-		{
-			[MBProgressHUD showError:@"你填写的提现金额必须大于0！" toView:app.window];
-		}
-	}
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }])];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"请您确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UITextField *textfield = [self.view viewWithTag:EnMeTiXianMoneyTextFieldTag];
+        [textfield resignFirstResponder];
+        if([textfield.text length]==0)
+        {
+            [MBProgressHUD showError:@"请填写要提现的金额" toView:app.window];
+        }
+        else if(![AddInterface isValidatenumber:textfield.text])
+        {
+            [MBProgressHUD showError:@"只能输入数字" toView:app.window];
+        }
+        else
+        {
+            float nowmoney = [[[dicmymoney objectForKey:@"mymoneyinfo"] objectForKey:@"canexchangemoney"] floatValue];
+            float inputmoney = [textfield.text floatValue];
+            
+            if(nowmoney<inputmoney)
+            {
+                [MBProgressHUD showError:@"你填写的提现金额不能超过可以提现的金额！" toView:app.window];
+            }
+            else if(inputmoney>0)
+            {
+                MyTiXianQRCodeViewController *tixiancode = [[MyTiXianQRCodeViewController alloc] init];
+                tixiancode.tixianmoney = textfield.text;
+                tixiancode.strdistribuid = selectdistribuid;
+                [self.navigationController pushViewController:tixiancode animated:YES];
+                
+            }
+            else
+            {
+                [MBProgressHUD showError:@"你填写的提现金额必须大于0！" toView:app.window];
+            }
+        }
+        
+    }])];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+    
+	
 
 }
 

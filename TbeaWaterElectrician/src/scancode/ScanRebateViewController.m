@@ -305,7 +305,17 @@
 
 -(void)clickbtdone:(id)sender
 {
-	[self clickdoneRebate:self.scancode];
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"提示" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+    }])];
+    [alertController addAction:([UIAlertAction actionWithTitle:@"请您确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        [self clickdoneRebate:self.scancode];
+        
+    }])];
+    
+    [self presentViewController:alertController animated:YES completion:nil];
+	
 }
 
 -(void)clickreport:(id)sender
