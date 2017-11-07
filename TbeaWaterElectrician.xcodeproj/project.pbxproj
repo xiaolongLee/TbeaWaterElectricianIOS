@@ -4421,7 +4421,7 @@
 					"$(PROJECT_DIR)/TbeaWaterElectrician/UMSocial/UMSocialSDK",
 					"$(PROJECT_DIR)/TbeaWaterElectrician/UMSocial/UMSocialUI",
 				);
-				GCC_PREFIX_HEADER = "/Users/xyy/Desktop/工作/Other/睿尔的东西/德阳电商/二期/水电工版/代码/ios/TbeaWaterElectrician/TbeaWaterElectrician/src/Custom/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/xyy/Desktop/工作/Other/睿尔的东西/德阳电商/二期/水电工版/代码/ios/TbeaWaterElectricianIOS/TbeaWaterElectrician/src/Custom/PrefixHeader.pch";
 				INFOPLIST_FILE = TbeaWaterElectrician/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -4476,7 +4476,7 @@
 					"$(PROJECT_DIR)/TbeaWaterElectrician/UMSocial/UMSocialSDK",
 					"$(PROJECT_DIR)/TbeaWaterElectrician/UMSocial/UMSocialUI",
 				);
-				GCC_PREFIX_HEADER = "/Users/xyy/Desktop/工作/Other/睿尔的东西/德阳电商/二期/水电工版/代码/ios/TbeaWaterElectrician/TbeaWaterElectrician/src/Custom/PrefixHeader.pch";
+				GCC_PREFIX_HEADER = "/Users/xyy/Desktop/工作/Other/睿尔的东西/德阳电商/二期/水电工版/代码/ios/TbeaWaterElectricianIOS/TbeaWaterElectrician/src/Custom/PrefixHeader.pch";
 				INFOPLIST_FILE = TbeaWaterElectrician/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
