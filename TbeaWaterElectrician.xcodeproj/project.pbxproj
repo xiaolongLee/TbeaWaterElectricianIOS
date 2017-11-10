@@ -654,6 +654,31 @@
 		08FD7A951E2C927700F09E4A /* me_walletselect@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 08FD7A921E2C927700F09E4A /* me_walletselect@3x.png */; };
 		08FD7A981E2CAF8000F09E4A /* XYW8IndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD7A971E2CAF8000F09E4A /* XYW8IndicatorView.m */; };
 		08FD7A9B1E2CBA4300F09E4A /* ScanInputQRCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 08FD7A9A1E2CBA4300F09E4A /* ScanInputQRCodeViewController.m */; };
+		7433756D1FB546B70003E249 /* ScanSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7433756C1FB546B70003E249 /* ScanSignInViewController.m */; };
+		743375711FB548890003E249 /* scanqrpaydone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433756E1FB548890003E249 /* scanqrpaydone.png */; };
+		743375721FB548890003E249 /* scanqrpaydone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433756F1FB548890003E249 /* scanqrpaydone@3x.png */; };
+		743375731FB548890003E249 /* scanqrpaydone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375701FB548890003E249 /* scanqrpaydone@2x.png */; };
+		7433757D1FB578920003E249 /* 我的会议@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375741FB578910003E249 /* 我的会议@2x.png */; };
+		7433757E1FB578920003E249 /* 签到成功@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375751FB578910003E249 /* 签到成功@2x.png */; };
+		7433757F1FB578920003E249 /* 签到失败.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375761FB578910003E249 /* 签到失败.png */; };
+		743375801FB578920003E249 /* 签到失败@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375771FB578910003E249 /* 签到失败@2x.png */; };
+		743375811FB578920003E249 /* 签到成功@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375781FB578910003E249 /* 签到成功@3x.png */; };
+		743375821FB578920003E249 /* 签到失败@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375791FB578910003E249 /* 签到失败@3x.png */; };
+		743375831FB578920003E249 /* 签到成功.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433757A1FB578920003E249 /* 签到成功.png */; };
+		743375841FB578920003E249 /* 我的会议.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433757B1FB578920003E249 /* 我的会议.png */; };
+		743375851FB578920003E249 /* 我的会议@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433757C1FB578920003E249 /* 我的会议@3x.png */; };
+		743375891FB580940003E249 /* MyMettingListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743375881FB580940003E249 /* MyMettingListViewController.m */; };
+		7433758F1FB58C390003E249 /* ButtonItemLayoutView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7433758E1FB58C390003E249 /* ButtonItemLayoutView.m */; };
+		743375921FB597720003E249 /* MyMettingDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 743375911FB597720003E249 /* MyMettingDetailViewController.m */; };
+		7433759C1FB5A84F0003E249 /* arrawgrayblue@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375931FB5A84D0003E249 /* arrawgrayblue@2x.png */; };
+		7433759D1FB5A84F0003E249 /* arrawgrayblue@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375941FB5A84E0003E249 /* arrawgrayblue@3x.png */; };
+		7433759E1FB5A84F0003E249 /* arrawbluegray.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375951FB5A84E0003E249 /* arrawbluegray.png */; };
+		7433759F1FB5A84F0003E249 /* arrawgray.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375961FB5A84E0003E249 /* arrawgray.png */; };
+		743375A01FB5A84F0003E249 /* arrawgray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375971FB5A84E0003E249 /* arrawgray@3x.png */; };
+		743375A11FB5A84F0003E249 /* arrawgrayblue.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375981FB5A84E0003E249 /* arrawgrayblue.png */; };
+		743375A21FB5A84F0003E249 /* arrawbluegray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375991FB5A84E0003E249 /* arrawbluegray@2x.png */; };
+		743375A31FB5A84F0003E249 /* arrawgray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433759A1FB5A84E0003E249 /* arrawgray@2x.png */; };
+		743375A41FB5A84F0003E249 /* arrawbluegray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433759B1FB5A84F0003E249 /* arrawbluegray@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1602,6 +1627,35 @@
 		08FD7A971E2CAF8000F09E4A /* XYW8IndicatorView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYW8IndicatorView.m; sourceTree = "<group>"; };
 		08FD7A991E2CBA4300F09E4A /* ScanInputQRCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ScanInputQRCodeViewController.h; sourceTree = "<group>"; };
 		08FD7A9A1E2CBA4300F09E4A /* ScanInputQRCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ScanInputQRCodeViewController.m; sourceTree = "<group>"; };
+		7433756B1FB546B70003E249 /* ScanSignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanSignInViewController.h; sourceTree = "<group>"; };
+		7433756C1FB546B70003E249 /* ScanSignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanSignInViewController.m; sourceTree = "<group>"; };
+		7433756E1FB548890003E249 /* scanqrpaydone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanqrpaydone.png; sourceTree = "<group>"; };
+		7433756F1FB548890003E249 /* scanqrpaydone@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanqrpaydone@3x.png"; sourceTree = "<group>"; };
+		743375701FB548890003E249 /* scanqrpaydone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "scanqrpaydone@2x.png"; sourceTree = "<group>"; };
+		743375741FB578910003E249 /* 我的会议@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的会议@2x.png"; sourceTree = "<group>"; };
+		743375751FB578910003E249 /* 签到成功@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到成功@2x.png"; sourceTree = "<group>"; };
+		743375761FB578910003E249 /* 签到失败.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到失败.png"; sourceTree = "<group>"; };
+		743375771FB578910003E249 /* 签到失败@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到失败@2x.png"; sourceTree = "<group>"; };
+		743375781FB578910003E249 /* 签到成功@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到成功@3x.png"; sourceTree = "<group>"; };
+		743375791FB578910003E249 /* 签到失败@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到失败@3x.png"; sourceTree = "<group>"; };
+		7433757A1FB578920003E249 /* 签到成功.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "签到成功.png"; sourceTree = "<group>"; };
+		7433757B1FB578920003E249 /* 我的会议.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的会议.png"; sourceTree = "<group>"; };
+		7433757C1FB578920003E249 /* 我的会议@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的会议@3x.png"; sourceTree = "<group>"; };
+		743375871FB580940003E249 /* MyMettingListViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMettingListViewController.h; sourceTree = "<group>"; };
+		743375881FB580940003E249 /* MyMettingListViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMettingListViewController.m; sourceTree = "<group>"; };
+		7433758D1FB58C390003E249 /* ButtonItemLayoutView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonItemLayoutView.h; sourceTree = "<group>"; };
+		7433758E1FB58C390003E249 /* ButtonItemLayoutView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonItemLayoutView.m; sourceTree = "<group>"; };
+		743375901FB597720003E249 /* MyMettingDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyMettingDetailViewController.h; sourceTree = "<group>"; };
+		743375911FB597720003E249 /* MyMettingDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyMettingDetailViewController.m; sourceTree = "<group>"; };
+		743375931FB5A84D0003E249 /* arrawgrayblue@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawgrayblue@2x.png"; sourceTree = "<group>"; };
+		743375941FB5A84E0003E249 /* arrawgrayblue@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawgrayblue@3x.png"; sourceTree = "<group>"; };
+		743375951FB5A84E0003E249 /* arrawbluegray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrawbluegray.png; sourceTree = "<group>"; };
+		743375961FB5A84E0003E249 /* arrawgray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrawgray.png; sourceTree = "<group>"; };
+		743375971FB5A84E0003E249 /* arrawgray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawgray@3x.png"; sourceTree = "<group>"; };
+		743375981FB5A84E0003E249 /* arrawgrayblue.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrawgrayblue.png; sourceTree = "<group>"; };
+		743375991FB5A84E0003E249 /* arrawbluegray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawbluegray@2x.png"; sourceTree = "<group>"; };
+		7433759A1FB5A84E0003E249 /* arrawgray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawgray@2x.png"; sourceTree = "<group>"; };
+		7433759B1FB5A84F0003E249 /* arrawbluegray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawbluegray@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1812,6 +1866,27 @@
 		0811A64B1E276DB2002D5CA1 /* 扫码 */ = {
 			isa = PBXGroup;
 			children = (
+				743375951FB5A84E0003E249 /* arrawbluegray.png */,
+				743375991FB5A84E0003E249 /* arrawbluegray@2x.png */,
+				7433759B1FB5A84F0003E249 /* arrawbluegray@3x.png */,
+				743375961FB5A84E0003E249 /* arrawgray.png */,
+				7433759A1FB5A84E0003E249 /* arrawgray@2x.png */,
+				743375971FB5A84E0003E249 /* arrawgray@3x.png */,
+				743375981FB5A84E0003E249 /* arrawgrayblue.png */,
+				743375931FB5A84D0003E249 /* arrawgrayblue@2x.png */,
+				743375941FB5A84E0003E249 /* arrawgrayblue@3x.png */,
+				7433757A1FB578920003E249 /* 签到成功.png */,
+				743375751FB578910003E249 /* 签到成功@2x.png */,
+				743375781FB578910003E249 /* 签到成功@3x.png */,
+				743375761FB578910003E249 /* 签到失败.png */,
+				743375771FB578910003E249 /* 签到失败@2x.png */,
+				743375791FB578910003E249 /* 签到失败@3x.png */,
+				7433757B1FB578920003E249 /* 我的会议.png */,
+				743375741FB578910003E249 /* 我的会议@2x.png */,
+				7433757C1FB578920003E249 /* 我的会议@3x.png */,
+				7433756E1FB548890003E249 /* scanqrpaydone.png */,
+				743375701FB548890003E249 /* scanqrpaydone@2x.png */,
+				7433756F1FB548890003E249 /* scanqrpaydone@3x.png */,
 				081DCDC11E7436770021A4CD /* 无经纬度.png */,
 				081DCDC21E7436770021A4CD /* 无经纬度@2x.png */,
 				081DCDC31E7436770021A4CD /* 无经纬度@3x.png */,
@@ -1925,6 +2000,7 @@
 		081F09611E0048580046333C /* me */ = {
 			isa = PBXGroup;
 			children = (
+				743375861FB580800003E249 /* MyMetting */,
 				08F163191E5B279E00952AD5 /* MyReport */,
 				08083E841E569C3C00B3FB4D /* MyOrder */,
 				08FBDBD81E49A07400920CB5 /* Colection */,
@@ -1979,6 +2055,8 @@
 				08525FBB1E288764008DC1C3 /* ScanWuLiuTrackViewController.m */,
 				08FD7A991E2CBA4300F09E4A /* ScanInputQRCodeViewController.h */,
 				08FD7A9A1E2CBA4300F09E4A /* ScanInputQRCodeViewController.m */,
+				7433756B1FB546B70003E249 /* ScanSignInViewController.h */,
+				7433756C1FB546B70003E249 /* ScanSignInViewController.m */,
 			);
 			path = scancode;
 			sourceTree = "<group>";
@@ -2103,6 +2181,7 @@
 		0824F9E51E0CD21300D958AF /* custompageview */ = {
 			isa = PBXGroup;
 			children = (
+				7433758C1FB58C390003E249 /* 公共button */,
 				0844327B1E5BDDA700DDEAD1 /* 获取地理位置 */,
 				08525FB01E287C3F008DC1C3 /* 扫码 */,
 				08525FAF1E287C30008DC1C3 /* 搜索 */,
@@ -3610,6 +3689,26 @@
 			name = Colection;
 			sourceTree = "<group>";
 		};
+		743375861FB580800003E249 /* MyMetting */ = {
+			isa = PBXGroup;
+			children = (
+				743375871FB580940003E249 /* MyMettingListViewController.h */,
+				743375881FB580940003E249 /* MyMettingListViewController.m */,
+				743375901FB597720003E249 /* MyMettingDetailViewController.h */,
+				743375911FB597720003E249 /* MyMettingDetailViewController.m */,
+			);
+			name = MyMetting;
+			sourceTree = "<group>";
+		};
+		7433758C1FB58C390003E249 /* 公共button */ = {
+			isa = PBXGroup;
+			children = (
+				7433758D1FB58C390003E249 /* ButtonItemLayoutView.h */,
+				7433758E1FB58C390003E249 /* ButtonItemLayoutView.m */,
+			);
+			path = "公共button";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -3680,9 +3779,12 @@
 				089748111DFFE9D1004C08E4 /* nearby_工商.png in Resources */,
 				089747D01DFFE9D1004C08E4 /* me_箭头右@2x.png in Resources */,
 				0897483F1DFFE9D1004C08E4 /* 接活gray@2x.png in Resources */,
+				743375851FB578920003E249 /* 我的会议@3x.png in Resources */,
 				089747E91DFFE9D1004C08E4 /* regiest_OK@3x.png in Resources */,
 				089748491DFFE9D1004C08E4 /* 首页blue@3x.png in Resources */,
 				087F958B1E03D8B500CDE883 /* regiest_closepic.png in Resources */,
+				743375801FB578920003E249 /* 签到失败@2x.png in Resources */,
+				743375A01FB5A84F0003E249 /* arrawgray@3x.png in Resources */,
 				089747E61DFFE9D1004C08E4 /* regiest_linegray@3x.png in Resources */,
 				08DBC7561E81076900C49E80 /* me_我的举报.png in Resources */,
 				08B87DC61E35ED4F001B2954 /* me_xuxian@3x.png in Resources */,
@@ -3693,6 +3795,7 @@
 				0811A66E1E276DB2002D5CA1 /* QR_相册@2x.png in Resources */,
 				089747E21DFFE9D1004C08E4 /* regiest_lineblue@2x.png in Resources */,
 				089747D51DFFE9D1004C08E4 /* regiest_1blue.png in Resources */,
+				7433757E1FB578920003E249 /* 签到成功@2x.png in Resources */,
 				08FBDBE81E49A61C00920CB5 /* me_collectionselected.png in Resources */,
 				089747161DFFE994004C08E4 /* LaunchScreen.storyboard in Resources */,
 				089747D81DFFE9D1004C08E4 /* regiest_1gray.png in Resources */,
@@ -3714,10 +3817,12 @@
 				0811A6681E276DB2002D5CA1 /* QR_扫码返利@2x.png in Resources */,
 				089748201DFFE9D1004C08E4 /* hp_redpoint.png in Resources */,
 				089747F41DFFE9D1004C08E4 /* login_alipayicon@2x.png in Resources */,
+				743375831FB578920003E249 /* 签到成功.png in Resources */,
 				088FE3C31E10C13200AF874D /* nearby_colockblue@3x.png in Resources */,
 				08009D371EB1D7E400F537F6 /* hp_附近商家whiteicon.png in Resources */,
 				0879B37C1E656F4E0007518B /* locationgrayicon@3x.png in Resources */,
 				088FE3C41E10C13200AF874D /* nearby_select.png in Resources */,
+				7433759E1FB5A84F0003E249 /* arrawbluegray.png in Resources */,
 				088FE3D01E110F2200AF874D /* nearby_selectdblack.png in Resources */,
 				089747CA1DFFE9D1004C08E4 /* me_我的订单@2x.png in Resources */,
 				089747F01DFFE9D1004C08E4 /* testpic3.png in Resources */,
@@ -3736,11 +3841,13 @@
 				089747FD1DFFE9D1004C08E4 /* login_qqicon@2x.png in Resources */,
 				089747F91DFFE9D1004C08E4 /* login_pwdicon.png in Resources */,
 				089747D71DFFE9D1004C08E4 /* regiest_1blue@3x.png in Resources */,
+				743375731FB548890003E249 /* scanqrpaydone@2x.png in Resources */,
 				089748451DFFE9D1004C08E4 /* 附近gray@2x.png in Resources */,
 				081A9E481E1519A6006B3BF6 /* 收藏@2x.png in Resources */,
 				089748161DFFE9D1004C08E4 /* nearby_消保@3x.png in Resources */,
 				0811A6611E276DB2002D5CA1 /* QR_历史.png in Resources */,
 				085A7EAC1E6980F300ABFEBF /* 5xin.png in Resources */,
+				743375A21FB5A84F0003E249 /* arrawbluegray@2x.png in Resources */,
 				084432871E5C261200DDEAD1 /* deleteicon@2x.png in Resources */,
 				082D009F1E4C103C0060EEA1 /* defaultaddrselected.png in Resources */,
 				089748271DFFE9D1004C08E4 /* hp_倒三角@2x.png in Resources */,
@@ -3789,12 +3896,14 @@
 				082357991E52AF3F0028AA9E /* me_shopcarcolordive.png in Resources */,
 				084BA1CC1E880D2700B2AFEA /* 已收藏@3x.png in Resources */,
 				0897481F1DFFE9D1004C08E4 /* hp_message@3x.png in Resources */,
+				743375811FB578920003E249 /* 签到成功@3x.png in Resources */,
 				089747CE1DFFE9D1004C08E4 /* me_我的钱包@3x.png in Resources */,
 				089747D31DFFE9D1004C08E4 /* accept_商家icon@2x.png in Resources */,
 				089747E81DFFE9D1004C08E4 /* regiest_OK@2x.png in Resources */,
 				089748221DFFE9D1004C08E4 /* hp_redpoint@3x.png in Resources */,
 				08FD7A941E2C927700F09E4A /* me_walletselect@2x.png in Resources */,
 				0897483B1DFFE9D1004C08E4 /* 接活blue.png in Resources */,
+				743375821FB578920003E249 /* 签到失败@3x.png in Resources */,
 				08C4C8B51E2BABBE00BCAEBE /* me_花积分@3x.png in Resources */,
 				08AAB4A21E51B87A00B07B29 /* me_shopcarselected@3x.png in Resources */,
 				085A7EA81E6980F300ABFEBF /* 3xin.png in Resources */,
@@ -3806,6 +3915,7 @@
 				089747CB1DFFE9D1004C08E4 /* me_我的订单@3x.png in Resources */,
 				083A3CF81E681BAC00D6DC36 /* regiestdone@3x.png in Resources */,
 				089748361DFFE9D1004C08E4 /* 我的gray@2x.png in Resources */,
+				743375721FB548890003E249 /* scanqrpaydone@3x.png in Resources */,
 				08974F2D1DFFEA30004C08E4 /* LTInputAccessoryView.xib in Resources */,
 				089748251DFFE9D1004C08E4 /* hp_searchicon@3x.png in Resources */,
 				0811A6621E276DB2002D5CA1 /* QR_历史@2x.png in Resources */,
@@ -3829,16 +3939,19 @@
 				089747DC1DFFE9D1004C08E4 /* regiest_2blue@2x.png in Resources */,
 				0804A9D31E014B2300F52CD5 /* login_closepwd@2x.png in Resources */,
 				088FE3D21E110F2200AF874D /* nearby_selectdblack@3x.png in Resources */,
+				7433759F1FB5A84F0003E249 /* arrawgray.png in Resources */,
 				083908BA1E248C9800809E73 /* hp_searchblue@2x.png in Resources */,
 				089747F51DFFE9D1004C08E4 /* login_alipayicon@3x.png in Resources */,
 				08974F2E1DFFEA30004C08E4 /* MBProgressHUD.bundle in Resources */,
 				085A7EAB1E6980F300ABFEBF /* 4xin@2x.png in Resources */,
 				0879B3751E65437E0007518B /* Overlay.png in Resources */,
+				7433759D1FB5A84F0003E249 /* arrawgrayblue@3x.png in Resources */,
 				089748321DFFE9D1004C08E4 /* 我的blue.png in Resources */,
 				082D009D1E4C103C0060EEA1 /* defaultaddrselect@2x.png in Resources */,
 				0823579A1E52AF3F0028AA9E /* me_shopcarcolordive@2x.png in Resources */,
 				089747C11DFFE9D1004C08E4 /* me_客服中心@2x.png in Resources */,
 				089747DD1DFFE9D1004C08E4 /* regiest_2blue@3x.png in Resources */,
+				743375841FB578920003E249 /* 我的会议.png in Resources */,
 				08974ED11DFFEA30004C08E4 /* CLTextView.xib in Resources */,
 				0897481C1DFFE9D1004C08E4 /* nearby_认证@3x.png in Resources */,
 				08C4C8B71E2BABBE00BCAEBE /* me_赚积分@2x.png in Resources */,
@@ -3848,6 +3961,7 @@
 				089748381DFFE9D1004C08E4 /* 扫码.png in Resources */,
 				085A7EA21E6980F300ABFEBF /* 0xin.png in Resources */,
 				08AC8FA31DFFFDF000F34595 /* regiest_card1.png in Resources */,
+				7433757F1FB578920003E249 /* 签到失败.png in Resources */,
 				0897484A1DFFE9D1004C08E4 /* 首页gray.png in Resources */,
 				08FBDBE51E49A61C00920CB5 /* me_collectionselect.png in Resources */,
 				08AC8FAA1DFFFDF000F34595 /* regiest_pic1@2x.png in Resources */,
@@ -3869,10 +3983,12 @@
 				089748351DFFE9D1004C08E4 /* 我的gray.png in Resources */,
 				081A9E491E1519A6006B3BF6 /* 收藏@3x.png in Resources */,
 				0897480F1DFFE9D1004C08E4 /* nearby_个人认证@2x.png in Resources */,
+				743375711FB548890003E249 /* scanqrpaydone.png in Resources */,
 				089747FE1DFFE9D1004C08E4 /* login_qqicon@3x.png in Resources */,
 				08F086CE1E6FF5AA00C1C372 /* UMSocialSDKResources.bundle in Resources */,
 				084432881E5C261200DDEAD1 /* deleteicon@3x.png in Resources */,
 				089747BB1DFFE9D1004C08E4 /* me_seticon@2x.png in Resources */,
+				743375A41FB5A84F0003E249 /* arrawbluegray@3x.png in Resources */,
 				089747C41DFFE9D1004C08E4 /* me_我的收藏@2x.png in Resources */,
 				085A7EA61E6980F300ABFEBF /* 2xin.png in Resources */,
 				085A7EA91E6980F300ABFEBF /* 3xin@2x.png in Resources */,
@@ -3884,6 +4000,7 @@
 				08C4C8B81E2BABBE00BCAEBE /* me_赚积分@3x.png in Resources */,
 				088FE3C21E10C13200AF874D /* nearby_colockblue@2x.png in Resources */,
 				089747D21DFFE9D1004C08E4 /* accept_商家icon.png in Resources */,
+				7433757D1FB578920003E249 /* 我的会议@2x.png in Resources */,
 				08F7A2391E6449DD004E51A5 /* starrate@2x.png in Resources */,
 				089748341DFFE9D1004C08E4 /* 我的blue@3x.png in Resources */,
 				0811A6651E276DB2002D5CA1 /* QR_手工输入@2x.png in Resources */,
@@ -3902,6 +4019,7 @@
 				0811A63A1E276149002D5CA1 /* zbar-samples.png in Resources */,
 				083908B81E248C9800809E73 /* hp_locationicon@3x.png in Resources */,
 				089747C61DFFE9D1004C08E4 /* me_我的消息.png in Resources */,
+				7433759C1FB5A84F0003E249 /* arrawgrayblue@2x.png in Resources */,
 				0897482D1DFFE9D1004C08E4 /* hp_通知icon@2x.png in Resources */,
 				083908B91E248C9800809E73 /* hp_searchblue.png in Resources */,
 				0811A6661E276DB2002D5CA1 /* QR_手工输入@3x.png in Resources */,
@@ -3973,6 +4091,7 @@
 				087F95901E03D8B500CDE883 /* regiest_testpic4@3x.png in Resources */,
 				0811A6391E276149002D5CA1 /* zbar-helpicons.png in Resources */,
 				081A9E401E1519A6006B3BF6 /* redpoint@3x.png in Resources */,
+				743375A31FB5A84F0003E249 /* arrawgray@2x.png in Resources */,
 				088FE3C61E10C13200AF874D /* nearby_select@3x.png in Resources */,
 				081A9E3F1E1519A6006B3BF6 /* redpoint@2x.png in Resources */,
 				088FE3CC1E10C14500AF874D /* 广告@3x.png in Resources */,
@@ -4013,6 +4132,7 @@
 				083908B61E248C9800809E73 /* hp_locationicon.png in Resources */,
 				08F086C71E6FF5AA00C1C372 /* README.txt in Resources */,
 				087F958F1E03D8B500CDE883 /* regiest_testpic4@2x.png in Resources */,
+				743375A11FB5A84F0003E249 /* arrawgrayblue.png in Resources */,
 				083A3CF61E681BAC00D6DC36 /* regiestdone.png in Resources */,
 				089747FA1DFFE9D1004C08E4 /* login_pwdicon@2x.png in Resources */,
 				082357911E52AF370028AA9E /* me_shopcarweixin@2x.png in Resources */,
@@ -4115,6 +4235,7 @@
 				085E0A3B1E165844009B74C1 /* BXTabBarButton.m in Sources */,
 				08DE66981E55A89400DAA0B6 /* MyOrderDaoFuViewController.m in Sources */,
 				087702E41E00EDCF00543711 /* MASCompositeConstraint.m in Sources */,
+				7433758F1FB58C390003E249 /* ButtonItemLayoutView.m in Sources */,
 				089750671DFFEA31004C08E4 /* SMPageControl.m in Sources */,
 				08974E9F1DFFEA30004C08E4 /* FoldAnimation.m in Sources */,
 				088FE3B11E10B81D00AF874D /* NearByProductPageCellView.m in Sources */,
@@ -4137,6 +4258,7 @@
 				087702EB1E00EDCF00543711 /* NSLayoutConstraint+MASDebugAdditions.m in Sources */,
 				08E772621E125259009D76D4 /* MeOrderCellView.m in Sources */,
 				087702E91E00EDCF00543711 /* MASViewConstraint.m in Sources */,
+				7433756D1FB546B70003E249 /* ScanSignInViewController.m in Sources */,
 				08974F1C1DFFEA30004C08E4 /* MJChiBaoZiFooter2.m in Sources */,
 				081A9E2A1E150B09006B3BF6 /* HYSegmentControl.m in Sources */,
 				08A680B41E23297E00CB7D40 /* LoginViewController.m in Sources */,
@@ -4151,6 +4273,7 @@
 				0811A6721E27831A002D5CA1 /* ScanHistoryViewController.m in Sources */,
 				081F09501E00301E0046333C /* LCTabBarButton.m in Sources */,
 				08525FB61E28831B008DC1C3 /* ScanOrginDetailViewController.m in Sources */,
+				743375891FB580940003E249 /* MyMettingListViewController.m in Sources */,
 				089750751DFFEA31004C08E4 /* InsetsLabel.m in Sources */,
 				081A9E201E14FFF4006B3BF6 /* SearchPageViewController.m in Sources */,
 				08974E8F1DFFEA30004C08E4 /* AFNetworkReachabilityManager.m in Sources */,
@@ -4215,6 +4338,7 @@
 				089750721DFFEA31004C08E4 /* HomeTabbarController.m in Sources */,
 				08974F231DFFEA30004C08E4 /* NSBundle+MJRefresh.m in Sources */,
 				085E0A491E165844009B74C1 /* UITextControl+FaultTolerance.m in Sources */,
+				743375921FB597720003E249 /* MyMettingDetailViewController.m in Sources */,
 				08974E921DFFEA30004C08E4 /* AFURLResponseSerialization.m in Sources */,
 				085E0A3E1E165844009B74C1 /* NSDictionary+Extension.m in Sources */,
 				08974E8E1DFFEA30004C08E4 /* AFHTTPSessionManager.m in Sources */,

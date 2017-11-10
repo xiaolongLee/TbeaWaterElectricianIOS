@@ -85,6 +85,13 @@ typedef enum     //附近经销商选择项
 	EnSortPrice     //招聘信息
 }EnNearByJXSSort;
 
+typedef enum
+{
+    EnButtonTextLeft,   //左对齐
+    EnButtonTextCenter, //中间对齐
+    EnButtonTextRight   //右对齐
+}EnButtonTextAlignment;
+
 typedef enum     //扫码是选择的溯源还是返利
 {
 	EnToOrgin,  //溯源
@@ -256,5 +263,10 @@ typedef enum
 #define EnTiXianAddrBgImageViewTag  72210 //提现地图的显示地址的白色背景
 
 #define EnThreeLoginButtonTag   72300   //第三方登录
+
+#define EnMettingListSelectItembt1  72400
+#define EnMettingListSelectItembt2  72401
+#define EnMettingListSelectItembt3  72402
+
 
 

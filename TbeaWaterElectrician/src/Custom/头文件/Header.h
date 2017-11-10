@@ -53,3 +53,11 @@
 #define URLSTRING(str) [NSURL URLWithString:str]
 
 
+// View的right、left、bottom、top、width、height
+#define XYViewR(View)              (View.frame.origin.x + View.frame.size.width)
+#define XYViewL(View)               (View.frame.origin.x)
+#define XYViewBottom(View)             (View.frame.origin.y + View.frame.size.height)
+#define XYViewTop(View)                (View.frame.origin.y)
+#define XYViewWidth(View)              (View.frame.size.width)
+#define XYViewHeight(View)             (View.frame.size.height)
+

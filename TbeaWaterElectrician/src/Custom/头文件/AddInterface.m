@@ -83,9 +83,22 @@
 
 +(CGSize) getlablesize:(NSString *)str Fwidth:(float)fwidth Fheight:(float)fheight Sfont:(UIFont *)sfont
 {
-	CGSize Sizetemp = [str boundingRectWithSize:CGSizeMake(fwidth,fheight) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:sfont} context:nil].size;
+//    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+//    [paragraphStyle setLineSpacing:30];//行间距
+    
+    CGSize Sizetemp = [str boundingRectWithSize:CGSizeMake(fwidth,fheight) options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:sfont} context:nil].size;
 	
 	return Sizetemp;
+}
+
++(NSMutableAttributedString *)getlabelspage:(NSString *)str Space:(float)space
+{
+    NSMutableAttributedString * attributedString = [[NSMutableAttributedString alloc] initWithString:str];
+    NSMutableParagraphStyle * paragraphStyle = [[NSMutableParagraphStyle alloc] init];
+    [paragraphStyle setLineSpacing:space];
+    [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, [str length])];
+    
+    return attributedString;
 }
 
 + (NSString *) md5:(NSString *)str

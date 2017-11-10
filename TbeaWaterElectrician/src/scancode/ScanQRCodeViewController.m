@@ -38,6 +38,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     //初始化扫描视图
+    app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	[self.navigationController setNavigationBarHidden:YES];
 	codetype = EnToRebate;
     [self configuredZBarReader];
@@ -113,20 +114,20 @@
         make.bottom.equalTo(_readview).with.offset(0);
     }];
 	
-	UIImageView *imageviewselect = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-220)/2, (SCREEN_HEIGHT / 2 - (SCREEN_WIDTH-100) / 2 -40)-45, 220, 32)];
-	imageviewselect.tag = ImageBgTag;
-	imageviewselect.image = LOADIMAGE(@"QR_扫码返利", @"png");
-	[_qrRectView addSubview:imageviewselect];
+//    UIImageView *imageviewselect = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-220)/2, (SCREEN_HEIGHT / 2 - (SCREEN_WIDTH-100) / 2 -40)-45, 220, 32)];
+//    imageviewselect.tag = ImageBgTag;
+//    imageviewselect.image = LOADIMAGE(@"QR_扫码返利", @"png");
+//    [_qrRectView addSubview:imageviewselect];
 	
-	UIButton *buttonleft = [UIButton buttonWithType:UIButtonTypeCustom];
-	buttonleft.frame = CGRectMake(imageviewselect.frame.origin.x, imageviewselect.frame.origin.y, imageviewselect.frame.size.width, imageviewselect.frame.size.height);
-	[buttonleft addTarget:self action:@selector(btclickleft:) forControlEvents:UIControlEventTouchUpInside];
-	[_qrRectView addSubview:buttonleft];
-	
-	UIButton *buttonright = [UIButton buttonWithType:UIButtonTypeCustom];
-	buttonright.frame = CGRectMake(imageviewselect.frame.origin.x+110, imageviewselect.frame.origin.y, imageviewselect.frame.size.width, imageviewselect.frame.size.height);
-	[buttonright addTarget:self action:@selector(btclickright:) forControlEvents:UIControlEventTouchUpInside];
-	[_qrRectView addSubview:buttonright];
+//    UIButton *buttonleft = [UIButton buttonWithType:UIButtonTypeCustom];
+//    buttonleft.frame = CGRectMake(imageviewselect.frame.origin.x, imageviewselect.frame.origin.y, imageviewselect.frame.size.width, imageviewselect.frame.size.height);
+//    [buttonleft addTarget:self action:@selector(btclickleft:) forControlEvents:UIControlEventTouchUpInside];
+//    [_qrRectView addSubview:buttonleft];
+//
+//    UIButton *buttonright = [UIButton buttonWithType:UIButtonTypeCustom];
+//    buttonright.frame = CGRectMake(imageviewselect.frame.origin.x+110, imageviewselect.frame.origin.y, imageviewselect.frame.size.width, imageviewselect.frame.size.height);
+//    [buttonright addTarget:self action:@selector(btclickright:) forControlEvents:UIControlEventTouchUpInside];
+//    [_qrRectView addSubview:buttonright];
 	
 	
 	//手工输入
@@ -300,19 +301,19 @@
 
 }
 
--(void)btclickleft:(id)sender
-{
-	UIImageView *imageview = [_qrRectView viewWithTag:ImageBgTag];
-	imageview.image = LOADIMAGE(@"QR_扫码返利", @"png");
-	codetype = EnToRebate;
-}
-
--(void)btclickright:(id)sender
-{
-	UIImageView *imageview = [_qrRectView viewWithTag:ImageBgTag];
-	imageview.image = LOADIMAGE(@"QR_产品溯源", @"png");
-	codetype = EnToOrgin;
-}
+//-(void)btclickleft:(id)sender
+//{
+//    UIImageView *imageview = [_qrRectView viewWithTag:ImageBgTag];
+//    imageview.image = LOADIMAGE(@"QR_扫码返利", @"png");
+//    codetype = EnToRebate;
+//}
+//
+//-(void)btclickright:(id)sender
+//{
+//    UIImageView *imageview = [_qrRectView viewWithTag:ImageBgTag];
+//    imageview.image = LOADIMAGE(@"QR_产品溯源", @"png");
+//    codetype = EnToOrgin;
+//}
 
 #pragma mark -
 #pragma mark ZBarReaderViewDelegate
@@ -347,7 +348,7 @@
     NSLog(@"urlStr: %@",urlStr);
 
 	
-	[self getscancodevalid:urlStr Typeid:codetype==EnToOrgin?@"suyuan":@"fanli"];
+	[self getscancode:urlStr ];
 	
 }
 
@@ -383,17 +384,17 @@
 
         return;
     }
-	[self getscancodevalid:urlStr Typeid:codetype==EnToOrgin?@"suyuan":@"fanli"];
+	[self getscancode:urlStr];
     NSLog(@"urlStr: %@",urlStr);
 	
 }
 
 #pragma mark 接口
--(void)getscancodevalid:(NSString *)scancode Typeid:(NSString *)typeid
+-(void)getscancode:(NSString *)scancode 
 {
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	[params setObject:scancode forKey:@"scancode"];
-	[params setObject:typeid forKey:@"scancodetypeid"];
+	[params setObject:[NSString stringWithFormat:@"%@ %@ %@",app.dili.diliprovince,app.dili.dilicity,app.dili.dililocality] forKey:@"address"];
 	[RequestInterface doGetJsonWithParametersNoAn:params App:app RequestCode:@"TBEAENG006000001000" ReqUrl:URLHeader ShowView:self.view alwaysdo:^
 	 {
 		 
@@ -403,19 +404,26 @@
 		 DLog(@"dic====%@",dic);
 		 if([[dic objectForKey:@"success"] isEqualToString:@"true"])
 		 {
-			 if(codetype==EnToOrgin)
-			 {
-				 ScanOrginDetailViewController *scanorgin = [[ScanOrginDetailViewController alloc] init];
-				 scanorgin.scancode = scancode;
-				 [self.navigationController pushViewController:scanorgin animated:YES];
-			 }
-			 else if(codetype == EnToRebate)
-			 {
-				 ScanRebateViewController *scanrebate = [[ScanRebateViewController alloc] init];
-				 scanrebate.scancode = scancode;
-				 scanrebate.fromflag = 1;
-				 [self.navigationController pushViewController:scanrebate animated:YES];
-			 }
+             NSString *dicqrtype = [[[dic objectForKey:@"data"] objectForKey:@"qrtypeinfo"] objectForKey:@"qrtype"];
+             if([dicqrtype isEqualToString:@"verifytbeaproduct"])  //扫码溯源
+             {
+                 ScanOrginDetailViewController *scanorgin = [[ScanOrginDetailViewController alloc] init];
+                 scanorgin.scancode = scancode;
+                 [self.navigationController pushViewController:scanorgin animated:YES];
+             }
+             else if([dicqrtype isEqualToString:@"scanrebate"]) //扫码返利
+             {
+                 ScanRebateViewController *scanrebate = [[ScanRebateViewController alloc] init];
+                 scanrebate.scancode = scancode;
+                 scanrebate.fromflag = 1;
+                 [self.navigationController pushViewController:scanrebate animated:YES];
+             }
+             else if([dicqrtype isEqualToString:@"meetingcheckin"]) //签到
+             {
+                 ScanSignInViewController *scansignin = [[ScanSignInViewController alloc] init];
+                 scansignin.FCscancode = scancode;
+                 [self.navigationController pushViewController:scansignin animated:YES];
+             }
 			 
 		 }
 		 else

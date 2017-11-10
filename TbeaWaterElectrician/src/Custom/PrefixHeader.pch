@@ -121,9 +121,14 @@
 #import "ForgetPasswdGetVerifyCodeViewController.h"
 #import "ForGetPasswdSetNewPwdViewController.h"
 #import "MyOrderDetailViewController.h"
+#import "ScanSignInViewController.h"
+#import "ButtonItemLayoutView.h"
+#import "MyMettingListViewController.h"
+#import "MyMettingDetailViewController.h"
 
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #define APP_KEY @"AijaDHgBnG7q9GEUwBQVsNAv"
+
 //*************************************
 //定义变量
 //#define URLHeader @"http://www.u-shang.net/enginterface/index.php"

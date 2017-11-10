@@ -110,7 +110,9 @@
 		 if(always){
 			 always();
 		 }
-		 
+         
+         NSString *str = [[NSString alloc] initWithData:responseObject  encoding:NSUTF8StringEncoding];
+         
 		 NSDictionary *jsonvalue = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
 		 success(jsonvalue);
 		 [animationView stopAnimating:YES];

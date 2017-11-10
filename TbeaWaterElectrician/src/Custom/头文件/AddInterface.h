@@ -35,6 +35,7 @@
 +(void)clearCache:(NSString *)path;
 +(BOOL) isValidatenumber:(NSString *)mobile;
 + (NSDictionary *)dictionaryWithJsonString:(NSString *)jsonString;
++(NSMutableAttributedString *)getlabelspage:(NSString *)str Space:(float)space;
 //获取str的size
 +(CGSize) getlablesize:(NSString *)str Fwidth:(float)fwidth Fheight:(float)fheight Sfont:(UIFont *)sfont;
 @end

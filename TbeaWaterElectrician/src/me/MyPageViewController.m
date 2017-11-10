@@ -232,28 +232,33 @@
 		case 1:
 			switch (indexPath.row)
 			{
-				case 0:
+                case 0:
+                    labeltitle.text = @"我的会议";
+                    imageview.image = LOADIMAGE(@"我的会议", @"png");
+                    imageview.frame = CGRectMake(10, 10, 17, 20);
+                    break;
+				case 1:
 					labeltitle.text = @"我的订单";
 					imageview.image = LOADIMAGE(@"me_我的订单", @"png");
 					imageview.frame = CGRectMake(10, 10, 17, 20);
 					labelvalue.text = @"查看全部订单";
 					[cell.contentView addSubview:labelvalue];
 					break;
-				case 1:
+				case 2:
 					labeltitle.text = @"我的消息";
 					imageview.image = LOADIMAGE(@"me_我的消息", @"png");
 					imageview.frame = CGRectMake(10, 10, 20, 20);
 					labelvalue.text = [NSString stringWithFormat:@"%@条未读",[dicserviceinfo objectForKey:@"newmessagenumber"]];
 					[cell.contentView addSubview:labelvalue];
 					break;
-				case 2:
+				case 3:
 					labeltitle.text = @"我的收藏";
 					imageview.image = LOADIMAGE(@"me_我的收藏", @"png");
 					imageview.frame = CGRectMake(10, 12, 20, 16);
 					labelvalue.text = [NSString stringWithFormat:@"%@",[dicserviceinfo objectForKey:@"savedatanumber"]];
 					[cell.contentView addSubview:labelvalue];
 					break;
-				case 3:
+				case 4:
 					labeltitle.text = @"我的举报";
 					imageview.image = LOADIMAGE(@"me_我的举报", @"png");
 					imageview.frame = CGRectMake(10, 12, 20, 16);
@@ -295,6 +300,7 @@
 	MyCollectionViewController *mycollection;
 	WebViewContentViewController *webviewcontent;
 	MyReportListViewController *reportlist;
+    MyMettingListViewController *mettinglist;
 	switch (indexPath.section)
 	{
 		case 0:
@@ -304,19 +310,23 @@
 		case 1:
 			switch (indexPath.row)
 			{
-				case 0:
+                case 0:
+                    mettinglist = [[MyMettingListViewController alloc] init];
+                    [self.navigationController pushViewController:mettinglist animated:YES];
+                    break;
+				case 1:
 					myorder = [[MyOrderViewController alloc] init];
 					[self.navigationController pushViewController:myorder animated:YES];
 					break;
-				case 1:
+				case 2:
 					message = [[MyMessageViewController alloc] init];
 					[self.navigationController pushViewController:message animated:YES];
 					break;
-				case 2:
+				case 3:
 					mycollection = [[MyCollectionViewController alloc] init];
 					[self.navigationController pushViewController:mycollection animated:YES];
 					break;
-				case 3:
+				case 4:
 					reportlist = [[MyReportListViewController alloc] init];
 					[self.navigationController pushViewController:reportlist animated:YES];
 					break;

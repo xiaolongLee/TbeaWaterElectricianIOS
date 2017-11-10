@@ -94,7 +94,7 @@
 	[textfield resignFirstResponder];
 	if([textfield.text length]>0)
 	{
-		[self getscancodevalid:textfield.text Typeid:self.codetype==EnToOrgin?@"suyuan":@"fanli"];
+		[self getscancode:[NSString stringWithFormat:@"tbscrfl_%@",textfield.text]];
 	}
 	else
 	{
@@ -103,40 +103,49 @@
 }
 
 #pragma mark 接口
--(void)getscancodevalid:(NSString *)scancode Typeid:(NSString *)typeid
+#pragma mark 接口
+-(void)getscancode:(NSString *)scancode
 {
-	NSMutableDictionary *params = [NSMutableDictionary dictionary];
-	[params setObject:scancode forKey:@"scancode"];
-	[params setObject:typeid forKey:@"scancodetypeid"];
-	[RequestInterface doGetJsonWithParametersNoAn:params App:app RequestCode:@"TBEAENG006000001000" ReqUrl:URLHeader ShowView:self.view alwaysdo:^
-	 {
-		 
-	 }
-										  Success:^(NSDictionary *dic)
-	 {
-		 DLog(@"dic====%@",dic);
-		 if([[dic objectForKey:@"success"] isEqualToString:@"true"])
-		 {
-			 if(self.codetype==EnToOrgin)
-			 {
-				 ScanOrginDetailViewController *scanorgin = [[ScanOrginDetailViewController alloc] init];
-				 scanorgin.scancode = scancode;
-				 [self.navigationController pushViewController:scanorgin animated:YES];
-			 }
-			 else if(self.codetype == EnToRebate)
-			 {
-				 ScanRebateViewController *scanrebate = [[ScanRebateViewController alloc] init];
-				 scanrebate.scancode = scancode;
-				 scanrebate.fromflag = 1;
-				 [self.navigationController pushViewController:scanrebate animated:YES];
-			 }
-			 
-		 }
-		 else
-		 {
-			 
-		 }
-	 }];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setObject:scancode forKey:@"scancode"];
+    [params setObject:[NSString stringWithFormat:@"%@ %@ %@",app.dili.diliprovince,app.dili.dilicity,app.dili.dililocality] forKey:@"address"];
+    [RequestInterface doGetJsonWithParametersNoAn:params App:app RequestCode:@"TBEAENG006000001000" ReqUrl:URLHeader ShowView:self.view alwaysdo:^
+     {
+         
+     }
+                                          Success:^(NSDictionary *dic)
+     {
+         DLog(@"dic====%@",dic);
+         if([[dic objectForKey:@"success"] isEqualToString:@"true"])
+         {
+             NSString *dicqrtype = [[[dic objectForKey:@"data"] objectForKey:@"qrtypeinfo"] objectForKey:@"qrtype"];
+             if([dicqrtype isEqualToString:@"verifytbeaproduct"])  //扫码溯源
+             {
+                 ScanOrginDetailViewController *scanorgin = [[ScanOrginDetailViewController alloc] init];
+                 scanorgin.scancode = scancode;
+                 [self.navigationController pushViewController:scanorgin animated:YES];
+             }
+             else if([dicqrtype isEqualToString:@"scanrebate"]) //扫码返利
+             {
+                 ScanRebateViewController *scanrebate = [[ScanRebateViewController alloc] init];
+                 scanrebate.scancode = scancode;
+                 scanrebate.fromflag = 1;
+                 [self.navigationController pushViewController:scanrebate animated:YES];
+             }
+             else if([dicqrtype isEqualToString:@"meetingcheckin"]) //签到
+             {
+                 ScanSignInViewController *scansignin = [[ScanSignInViewController alloc] init];
+                 scansignin.FCscancode = scancode;
+                 [self.navigationController pushViewController:scansignin animated:YES];
+             }
+             
+         }
+         else
+         {
+             [MBProgressHUD showError:[dic objectForKey:@"msg"] toView:app.window];
+             //[self donecodevalid:[dic objectForKey:@"msg"]];
+         }
+     }];
 }
 
 
