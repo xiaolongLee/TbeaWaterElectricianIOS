@@ -106,15 +106,16 @@
     
 }
 
--(void)initviewtopfaile
+-(void)initviewtopfaile:(NSString *)strmsg
 {
     UIImageView *imageviewicon = [[UIImageView alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-70)/2, 50, 70, 70)];
     imageviewicon.image = LOADIMAGE(@"签到失败", @"png");;
     [self.view addSubview:imageviewicon];
     
-    UILabel *labelname = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-200)/2,imageviewicon.frame.origin.y+imageviewicon.frame.size.height+10, 200, 20)];
-    labelname.text = @"签到失败";
+    UILabel *labelname = [[UILabel alloc] initWithFrame:CGRectMake((SCREEN_WIDTH-260)/2,imageviewicon.frame.origin.y+imageviewicon.frame.size.height+10, 260, 40)];
+    labelname.text = strmsg;
     labelname.font = FONTN(15.0f);
+    labelname.numberOfLines = 2;
     labelname.backgroundColor = [UIColor clearColor];
     labelname.textAlignment = NSTextAlignmentCenter;
     labelname.textColor = [UIColor blackColor];
@@ -175,8 +176,8 @@
          }
          else
          {
-             [MBProgressHUD showError:[dic objectForKey:@"msg"] toView:app.window];
-             [self initviewtopfaile];
+            // [MBProgressHUD showError:[dic objectForKey:@"msg"] toView:app.window];
+             [self initviewtopfaile:[dic objectForKey:@"msg"]];
              //初始化按钮之下
              [self initviewunder];
          }

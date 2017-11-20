@@ -38,7 +38,7 @@
 	[self.view addSubview:imageviewtopblue];
 	[imageviewtopblue mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.and.top.and.right.mas_equalTo(self.view);
-		make.height.equalTo(@64);
+		make.height.equalTo(@(44+StatusBarHeight));
 	}];
 	
 	UILabel *labdes = [[UILabel alloc] init];
@@ -63,9 +63,9 @@
 	[btreturn setTitleColor:COLORNOW(102, 102, 102) forState:UIControlStateNormal];
 	[self.view addSubview:btreturn];
 	[btreturn mas_makeConstraints:^(MASConstraintMaker *make) {
-		make.left.mas_equalTo(self.view.mas_left);
+		make.left.mas_equalTo(self.view.mas_left).offset(10);
 		make.size.mas_equalTo(CGSizeMake(44, 44));
-		make.top.mas_equalTo(20);
+		make.top.mas_equalTo(20).offset(StatusBarHeight);
 	}];
 	
 	//icon
@@ -76,7 +76,7 @@
 	[imageicon mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.centerX.equalTo(self.view);
 		make.size.mas_equalTo(CGSizeMake(80, 80));
-		make.top.equalTo(@80.0f);
+		make.top.mas_equalTo(imageviewtopblue.mas_bottom).offset(20);
 	}];
 	
 	//输入框
