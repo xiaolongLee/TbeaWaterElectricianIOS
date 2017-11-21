@@ -22,6 +22,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:NO];
 	[[self.navigationController.navigationBar viewWithTag:EnNearBySeViewTag] removeFromSuperview];
 	[[self.navigationController.navigationBar viewWithTag:EnNearSearchViewBt] removeFromSuperview];
 }
@@ -64,6 +65,8 @@
 	tableview.backgroundColor = [UIColor clearColor];
 
 	[self.view addSubview:tableview];
+
+    
 	MJRefreshNormalHeader *header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData:)];
 	header.automaticallyChangeAlpha = YES;
 	header.lastUpdatedTimeLabel.hidden = YES;
@@ -171,7 +174,8 @@
 {
 	WebViewContentViewController *webviewcontent = [[WebViewContentViewController alloc] init];
 	webviewcontent.strtitle = [diccompanybaseinfo objectForKey:@"name"];
-	NSString *urlstr = [NSString stringWithFormat:@"http://www.u-shang.net/enginterface/index.php/Apph5/address?longitude=%@&latitude=%@",[diccompanybaseinfo objectForKey:@"longitude"],[diccompanybaseinfo objectForKey:@"latitude"]];
+	NSString *urlstr = [NSString stringWithFormat:@"%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader];
+    urlstr = [NSString stringWithFormat:@"%@/address?longitude=%@&latitude=%@",urlstr,[diccompanybaseinfo objectForKey:@"longitude"],[diccompanybaseinfo objectForKey:@"latitude"]];
 	webviewcontent.strnewsurl = urlstr;
 	[self.navigationController pushViewController:webviewcontent animated:YES];
 }

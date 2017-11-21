@@ -11,7 +11,8 @@
 
 #import <UIKit/UIKit.h>
 #import "LCTabBarButton.h"
-#define kTabbarHeight 49
+#define  iPhoneX (SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f ? YES : NO)
+#define kTabbarHeight ((iPhoneX) ? 83 : 49)
 
 @protocol LCTabBarDelegate <NSObject>
 

@@ -125,6 +125,7 @@
 #import "ButtonItemLayoutView.h"
 #import "MyMettingListViewController.h"
 #import "MyMettingDetailViewController.h"
+#import "YBPopupMenu.h"
 
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #define APP_KEY @"AijaDHgBnG7q9GEUwBQVsNAv"
@@ -136,6 +137,13 @@
 
 #define URLHeader @"http://121.42.193.154:6698/enginterface/index.php"
 #define URLPicHeader @"http://121.42.193.154:6698"
+
+#define HttpMessageDetail @"messagelist?messagecategoryid=" //消息详细
+#define HttpUserProtocol @"userregisteragreement"  //用户协议
+#define HttpAboutMe @"aboutplatform"  //关于我们
+#define HtmlURLHelpDetail @"userhelpdetail?questionid="  //帮助中心
+#define HttpDistribute @"business?companyid=" //分经销商详情
+#define HttpTaskDetail @"taskdetail?taskid=" //任务详情
 
 //#define URLHeader @"http://www.u-shang.net/testinterface/index.php/Index"
 

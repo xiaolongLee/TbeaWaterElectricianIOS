@@ -65,7 +65,7 @@
 //	{
 		[self gethomepage:app.dili.dilicity CityId:@"" Page:@"1" Pagesize:@"10"];
 //	}
-	self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStylePlain];
+	self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-44-StatusBarHeight-TabBarHeight) style:UITableViewStylePlain];
 	self.tableview.backgroundColor = [UIColor clearColor];
 	[self.view addSubview:self.tableview];
 	[self setExtraCellLineHidden:self.tableview];
@@ -77,6 +77,7 @@
 	self.tableview.mj_header = header;
 
     [self getupdateversion];
+    [self getURLPrefix];
 	
 	
 }
@@ -545,6 +546,30 @@
 }
 
 #pragma mark 接口
+//获取url前缀
+-(void)getURLPrefix
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"terminaltype"] = @"ios";
+    [RequestInterface doGetJsonWithParametersNoAn:params App:app RequestCode:@"TBEAENG015001002000" ReqUrl:URLHeader ShowView:self.view alwaysdo:^
+     {
+         
+     }
+     Success:^(NSDictionary *dic)
+     {
+         DLog(@"dic====%@",dic);
+         if([[dic objectForKey:@"success"] isEqualToString:@"true"])
+         {
+             app.GBURLPreFix = [[dic objectForKey:@"data"] objectForKey:@"url"];
+         }
+         else
+         {
+             [MBProgressHUD showError:[dic objectForKey:@"msg"] toView:app.window];
+         }
+     }];
+    
+}
+
 -(void)gethomepage:(NSString *)cityname CityId:(NSString *)cityid Page:(NSString *)page Pagesize:(NSString *)pagesize
 {
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];

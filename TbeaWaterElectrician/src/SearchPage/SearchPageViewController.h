@@ -7,14 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-
-@interface SearchPageViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,ActionDelegate>
+#import "YBPopupMenu.h"
+@interface SearchPageViewController : UIViewController<UITableViewDelegate,UITableViewDataSource,UIScrollViewDelegate,ActionDelegate,YBPopupMenuDelegate>
 {
 	AppDelegate *app;
 	NSMutableArray *arraydata;
 	NSArray *arrayhot;
 	UITableView *tableview;
 	EnSearchType searchtype;
+    YBPopupMenu *ybpopmenu;
 }
 
 @end

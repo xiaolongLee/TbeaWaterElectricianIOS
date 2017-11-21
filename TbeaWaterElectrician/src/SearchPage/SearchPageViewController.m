@@ -8,6 +8,8 @@
 
 #import "SearchPageViewController.h"
 
+#define TITLES @[@"商品",@"商家",@"经销商"]
+
 @interface SearchPageViewController ()
 
 @end
@@ -26,13 +28,13 @@
 {
 	[self.navigationController setNavigationBarHidden:YES];
 	UIImageView *imageviewtopblue = [[UIImageView alloc] init];
-	imageviewtopblue.frame = CGRectMake(0, 0, SCREEN_WIDTH, 64);
+	imageviewtopblue.frame = CGRectMake(0, 0, SCREEN_WIDTH, StatusBarHeight+44);
 	imageviewtopblue.backgroundColor =COLORNOW(27, 130, 210);
 	[self.view addSubview:imageviewtopblue];
 
 	//返回按钮
 	UIButton *btreturn = [UIButton buttonWithType:UIButtonTypeCustom];
-	btreturn.frame = CGRectMake(SCREEN_WIDTH-70, 22, 70, 40);
+	btreturn.frame = CGRectMake(SCREEN_WIDTH-70, StatusBarHeight+2, 70, 40);
 	[btreturn setTitle:@"取消" forState:UIControlStateNormal];
 	btreturn.titleLabel.font = FONTN(15.0f);
 	[btreturn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -49,7 +51,7 @@
 	{
 		arraydata = [[NSMutableArray alloc] init];
 	}
-	tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStylePlain];
+	tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, XYViewBottom(imageviewtopblue), SCREEN_WIDTH, SCREEN_HEIGHT-XYViewHeight(imageviewtopblue)) style:UITableViewStylePlain];
 	tableview.backgroundColor = [UIColor clearColor];
 	tableview.delegate = self;
 	tableview.dataSource = self;
@@ -130,7 +132,7 @@
 //搜索框
 -(void)searchinpuview
 {
-	SearchPageTopView *searchview = [[SearchPageTopView alloc] initWithgoods:CGRectMake(10, 27, SCREEN_WIDTH-70, 30)];
+	SearchPageTopView *searchview = [[SearchPageTopView alloc] initWithgoods:CGRectMake(10, StatusBarHeight+7, SCREEN_WIDTH-70, 30)];
 	searchview.tag = EnNearSearchViewBt;
 	searchview.delgate1 = self;
 	[self.view addSubview:searchview];
@@ -142,6 +144,43 @@
 	SearchPageTopView *searchview = [self.view viewWithTag:EnNearSearchViewBt];
 	UITextField *textfield = [searchview viewWithTag:EnSearchTextfieldCityTag3];
 	[textfield resignFirstResponder];
+}
+
+#pragma mark pop弹出框
+- (void)Clickmorefunction:(id)sender
+{
+    ybpopmenu = [YBPopupMenu showRelyOnView:sender titles:TITLES icons:nil menuWidth:130 otherSettings:^(YBPopupMenu *popupMenu)
+                 {
+                     popupMenu.dismissOnSelected = NO;
+                     popupMenu.isShowShadow = YES;
+                     popupMenu.delegate = self;
+                     popupMenu.offset = 5;
+                     popupMenu.type = YBPopupMenuTypeDefault;
+                     popupMenu.rectCorner = UIRectCornerBottomLeft | UIRectCornerBottomRight|UIRectCornerAllCorners;
+                 }];
+    
+}
+
+- (void)ybPopupMenuDidSelectedAtIndex:(NSInteger)index ybPopupMenu:(YBPopupMenu *)ybPopupMenu
+{
+    SearchPageTopView *searchview = [self.view viewWithTag:EnNearSearchViewBt];
+    UIButton *buttontype = searchview.buttontype;
+    
+    [buttontype setTitle:TITLES[index] forState:UIControlStateNormal];
+    if([TITLES[index] isEqualToString:@"商品"])
+    {
+        searchtype = EnSearchGoods;
+    }
+    else if([TITLES[index] isEqualToString:@"商家"])
+    {
+        searchtype = EnSearchShop;
+    }
+    else if([TITLES[index] isEqualToString:@"经销商"])
+    {
+        searchtype = EnSearchdistru;
+    }
+    [ybpopmenu dismiss];
+    NSLog(@"点击了 %@ 选项",TITLES[index]);
 }
 
 #pragma mark tabbleview代理
@@ -264,6 +303,11 @@
 
 
 #pragma mark Actiondelegate
+-(void)DGClickSearchType:(id)sender
+{
+    [self Clickmorefunction:sender];
+}
+
 -(void)DGClickSearchResultTextField:(NSString *)sender
 {
 	int flag = 0;

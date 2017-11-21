@@ -341,7 +341,7 @@
 			{
 				WebViewContentViewController *webviewcontent = [[WebViewContentViewController alloc] init];
 				webviewcontent.strtitle = @"经销商";//[dictemp objectForKey:@"tasktitle"];
-				NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/business?companyid=";
+				NSString *str = [NSString stringWithFormat:@"%@%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpDistribute];
 				str = [NSString stringWithFormat:@"%@%@&userid=%@&longitude=%@&latitude=%@",str,self.strdistrid,app.userinfo.userid,[NSString stringWithFormat:@"%f",app.dili.longitude],[NSString stringWithFormat:@"%f",app.dili.latitude]];
 				webviewcontent.strnewsurl = str;
 				[self.navigationController pushViewController:webviewcontent animated:YES];

@@ -24,6 +24,7 @@
 	BMKMapManager* mapManager;
 	BMKGeoCodeSearch* geocodesearch;
 }
+@property(nonatomic,strong)NSString *GBURLPreFix;
 @property (strong, nonatomic) UIWindow *window;
 @property(strong,nonatomic)UserInfo *userinfo;
 @property(strong,nonatomic)DiliWeiZhi *dili;

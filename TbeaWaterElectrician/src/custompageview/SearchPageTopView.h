@@ -14,7 +14,7 @@
 	AppDelegate *app;
 	
 }
-
+@property(nonatomic,strong)UIButton *buttontype;
 @property(nonatomic,strong)id<ActionDelegate>delgate1;
 -(id)initWithFrame:(CGRect)frame Whiter:(int)white;
 -(id)initWithgoods:(CGRect)frame;

@@ -341,8 +341,8 @@
 					break;
 				case 1:
 					webviewcontent = [[WebViewContentViewController alloc] init];
-					webviewcontent.strtitle = @"关于优商";
-					webviewcontent.strnewsurl = @"http://www.u-shang.net/enginterface/index.php/Apph5/about";
+					webviewcontent.strtitle = @"关于电工惠";
+					webviewcontent.strnewsurl = [NSString stringWithFormat:@"%@%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpAboutMe];
 					[self.navigationController pushViewController:webviewcontent animated:YES];
 					
 					break;

@@ -129,12 +129,14 @@ static NSInteger const BXTabBarTag = 12000;
         
         if (i == 2) {
             y = -12;
-            h = self.height + 12;
+            h = 49 + 12;
         } else {
             y = 0;
-            h = self.height;
+            h = 49;//self.height;
         }
         btn.frame = CGRectMake(x, y, w, h);
+        
+        NSLog(@"hhhhh=%f,%f,%f,%f",x,y,w,h);
     }
 }
 

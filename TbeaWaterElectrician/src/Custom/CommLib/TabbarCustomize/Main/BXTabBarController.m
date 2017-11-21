@@ -15,8 +15,9 @@
 #import "ScanCodeViewController.h"
 
 
+#define  iPhoneX (SCREEN_WIDTH == 375.f && SCREEN_HEIGHT == 812.f ? YES : NO)
+#define kTabbarHeight ((iPhoneX) ? 83 : 49)
 
-#define kTabbarHeight 49
 #define  kContentFrame  CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height-kTabbarHeight)
 #define  kDockFrame CGRectMake(0, self.view.frame.size.height-kTabbarHeight, self.view.frame.size.width, kTabbarHeight)
 
@@ -85,6 +86,7 @@
     tabBar.frame = self.tabBar.frame;
     [self.view addSubview:tabBar];
     self.mytabbar = tabBar;
+    NSLog(@"tabbar=====%f,%f,%f,%f",tabBar.frame.size.height,tabBar.frame.size.width,tabBar.frame.origin.x,tabBar.frame.origin.y);
 }
 
 
@@ -192,7 +194,7 @@
 		// 调整tabbar的Y值
 		CGRect dockFrame = self.mytabbar.frame;
 		
-		dockFrame.origin.y = root.view.frame.size.height - kTabbarHeight;
+        dockFrame.origin.y = root.view.frame.size.height - kTabbarHeight;
 		if ([root.view isKindOfClass:[UIScrollView class]]) { // 根控制器的view是能滚动
 			UIScrollView *scrollview = (UIScrollView *)root.view;
 			dockFrame.origin.y += scrollview.contentOffset.y;
@@ -209,14 +211,15 @@
 	BXNavigationController *nav = (BXNavigationController *)navigationController;
 	if (viewController == root) {
 		// 更改导航控制器view的frame
-		//        navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - kTabbarHeight);
+//        navigationController.view.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height - kTabbarHeight);
 		
 		navigationController.interactivePopGestureRecognizer.delegate = nav.popDelegate;
 		// 让Dock从root上移除
 		[_mytabbar removeFromSuperview];
 		
 		//_mytabbar添加dock到HomeViewController
-		_mytabbar.frame = self.tabBar.frame;
+        _mytabbar.frame = self.tabBar.frame;
+        NSLog(@"_mytabbar=====%f,%f,%f,%f",_mytabbar.frame.size.height,_mytabbar.frame.size.width,_mytabbar.frame.origin.x,_mytabbar.frame.origin.y);
 		[self.view addSubview:_mytabbar];
 	}
 }

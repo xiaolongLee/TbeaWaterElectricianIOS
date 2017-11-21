@@ -129,7 +129,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 6;
+	return 8;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -138,7 +138,7 @@
 	static NSString *reuseIdetify = @"cell";
 	if (!cell) {
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdetify];
-		cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+		cell.accessoryType = UITableViewCellAccessoryNone;
 	}
 	
 	[cell setSelectionStyle:UITableViewCellSelectionStyleNone];
@@ -168,6 +168,7 @@
 	switch (indexPath.row)
 	{
 		case 0:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			labeltitle.text = @"头像";
 			imageheaderview = [[UIImageView alloc] initWithFrame:CGRectMake(SCREEN_WIDTH-60, 10, 30, 30)];
 			imageheaderview.layer.cornerRadius = 15.0f;
@@ -178,32 +179,42 @@
 			[cell.contentView addSubview:imageheaderview];
 			break;
         case 1:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             labeltitle.text = @"昵称";
             labelvalue.text = [dicuserinfo objectForKey:@"nickname"];
             [cell.contentView addSubview:labelvalue];
             break;
 		case 2:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			labeltitle.text = @"性别";
 			labelvalue.text = [dicuserinfo objectForKey:@"sex"];
 			[cell.contentView addSubview:labelvalue];
 			break;
 		case 3:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			labeltitle.text = @"生日";
 			labelvalue.text = [dicuserinfo objectForKey:@"birthday"];
 			[cell.contentView addSubview:labelvalue];
 			break;
-		case 4:
+        case 4:
+            labeltitle.text = @"工龄";
+            labelvalue.text = [dicuserinfo objectForKey:@"oldyears"];
+            [cell.contentView addSubview:labelvalue];
+            break;
+		case 5:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			labeltitle.text = @"电子邮件";
 			labelvalue.text = [dicuserinfo objectForKey:@"mailaddr"];
 			[cell.contentView addSubview:labelvalue];
 			break;
-		case 5:
+		case 6:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 			labeltitle.text = @"收货地址管理";
 			labelvalue.text = @"添加/修改";
 			[cell.contentView addSubview:labelvalue];
 			break;
-        case 6:
-            labeltitle.text = @"公司名称";
+        case 7:
+            labeltitle.text = @"隶属";
             labelvalue.text = [dicuserinfo objectForKey:@"companyname"];
             [cell.contentView addSubview:labelvalue];
             break;
@@ -235,13 +246,13 @@
 		case 3:
 			[self showaccession:(int)indexPath.row];
 			break;
-		case 4:
+		case 5:
 			modifyperson = [[ModifyPersonInfoViewController alloc] init];
 			modifyperson.delegate1 = self;
             modifyperson.FCtitle = @"电子邮件";
 			[self.navigationController pushViewController:modifyperson animated:YES];
 			break;
-		case 5:
+		case 6:
 			addaddr = [[ReceiveAddrViewController alloc] init];
 			addaddr.fromaddr = @"1";
 			[self.navigationController pushViewController:addaddr animated:YES];
@@ -384,12 +395,12 @@
 {
 	[content1 removeAllObjects];
 
-	if(sender == 1)  //选择性别
+	if(sender == 2)  //选择性别
 	{
 		[content1 addObject:@"先生"];
 		[content1 addObject:@"女士"];
 	}
-	else if(sender == 2)   //选择生日
+	else if(sender == 3)   //选择生日
 	{
 		content1 = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",nil];
 		content2 = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31",nil];
@@ -438,7 +449,7 @@
 	[self hideMyPicker];
 	
 
-	if(selectmodel == 1) //修改性别
+	if(selectmodel == 2) //修改性别
 	{
 		NSIndexPath *indexpath= [NSIndexPath indexPathForRow:1 inSection:0];
 		UITableViewCell *cell = [tableview cellForRowAtIndexPath:indexpath];
@@ -448,7 +459,7 @@
 		[self modifyuserinfo:@"sex" ParaValue:[result1 isEqualToString:@"先生"]?@"male":@"Female"];
 		
 	}
-	else if(selectmodel == 2)//修改生日
+	else if(selectmodel == 3)//修改生日
 	{
 		NSIndexPath *indexpath= [NSIndexPath indexPathForRow:2 inSection:0];
 		UITableViewCell *cell = [tableview cellForRowAtIndexPath:indexpath];
@@ -469,7 +480,7 @@
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView*)pickerView
 {
-	if(selectmodel == 1)
+	if(selectmodel == 2)
 		return 1;
 	return 2;
 }
@@ -477,12 +488,12 @@
 // 返回当前列显示的行数
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-	if(selectmodel == 1)
+	if(selectmodel == 2)
 	{
 		if(component == 0)
 			return [content1 count];
 	}
-	else if(selectmodel == 2)
+	else if(selectmodel == 3)
 	{
 		if(component == 0)
 			return [content1 count];
@@ -495,12 +506,12 @@
 // 设置当前行的内容，若果行没有显示则自动释放
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-	if(selectmodel == 1)
+	if(selectmodel == 2)
 	{
 		if(component == 0)
 			return [content1 objectAtIndex:row];
 	}
-	else if(selectmodel == 2)
+	else if(selectmodel == 3)
 	{
 		if(component == 0)
 			return [content1 objectAtIndex:row];
@@ -512,12 +523,12 @@
 
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-	if(selectmodel == 1)
+	if(selectmodel == 2)
 	{
 		if(component == 0)
 			result1 = [content1 objectAtIndex:row];
 	}
-	else if(selectmodel == 2)
+	else if(selectmodel ==3)
 	{
 		if(component == 0)
 			result1 = [content1 objectAtIndex:row];

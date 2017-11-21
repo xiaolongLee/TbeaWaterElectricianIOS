@@ -182,7 +182,8 @@
 	NSDictionary *dictemp = [arraydata objectAtIndex:indexPath.row];
 	WebViewContentViewController *webviewcontent = [[WebViewContentViewController alloc] init];
 	webviewcontent.strtitle = [dictemp objectForKey:@"name"];
-	NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/messagelist?messagecategoryid=";
+//	NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/messagelist?messagecategoryid=";
+    NSString *str = [NSString stringWithFormat:@"%@%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpMessageDetail];
 	str = [NSString stringWithFormat:@"%@%@",str,[dictemp objectForKey:@"id"]];
 	webviewcontent.strnewsurl = str;
 	[self.navigationController pushViewController:webviewcontent animated:YES];

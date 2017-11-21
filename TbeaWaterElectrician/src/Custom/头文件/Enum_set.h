@@ -107,7 +107,8 @@ typedef enum     //我的钱包选择的是收还是支出
 typedef enum
 {
 	EnSearchGoods=1,  //搜索商品
-	EnSearchShop//搜索店铺
+	EnSearchShop,//搜索店铺
+    EnSearchdistru//搜索店铺
 }EnSearchType;
 
 typedef enum

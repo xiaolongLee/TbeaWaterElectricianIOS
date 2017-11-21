@@ -73,16 +73,16 @@
 	self.clipsToBounds = YES;
 	
 	
-	UIButton *buttontype = [UIButton buttonWithType:UIButtonTypeCustom];
-	buttontype.titleLabel.font = FONTN(12.0f);
-	[buttontype setTitleColor:ColorBlackdeep forState:UIControlStateNormal];
-	[buttontype setTitle:@"商品" forState:UIControlStateNormal];
-	[buttontype addTarget:self action:@selector(selecttype:) forControlEvents:UIControlEventTouchUpInside];
-	buttontype.frame = CGRectMake(3, 0, 40, 30);
-	[buttontype setBackgroundColor:[UIColor clearColor]];
-	[self addSubview:buttontype];
+	_buttontype = [UIButton buttonWithType:UIButtonTypeCustom];
+	_buttontype.titleLabel.font = FONTN(12.0f);
+	[_buttontype setTitleColor:ColorBlackdeep forState:UIControlStateNormal];
+	[_buttontype setTitle:@"商品" forState:UIControlStateNormal];
+	[_buttontype addTarget:self action:@selector(selecttype:) forControlEvents:UIControlEventTouchUpInside];
+	_buttontype.frame = CGRectMake(3, 0, 40, 30);
+	[_buttontype setBackgroundColor:[UIColor clearColor]];
+	[self addSubview:_buttontype];
 	
-	UITextField *textfieldsearch = [[UITextField alloc] initWithFrame:CGRectMake(buttontype.frame.origin.x+buttontype.frame.size.width+5, 1, self.frame.size.width-30,28)];
+	UITextField *textfieldsearch = [[UITextField alloc] initWithFrame:CGRectMake(_buttontype.frame.origin.x+_buttontype.frame.size.width+5, 1, self.frame.size.width-30,28)];
 	textfieldsearch.backgroundColor = [UIColor clearColor];
 	textfieldsearch.placeholder = @"输入搜索的名称";
 	textfieldsearch.delegate = self;
@@ -167,7 +167,10 @@
 
 -(void)selecttype:(id)sender
 {
-	
+    if([self.delgate1 respondsToSelector:@selector(DGClickSearchType:)])
+    {
+        [self.delgate1 DGClickSearchType:sender];
+    }
 }
 
 @end

@@ -54,4 +54,7 @@
 
 -(void)DGSelectCommdityAddr:(NSDictionary *)sid;    //商品网页选择地址过来的
 
+-(void)DGClickSearchType:(id)sender;//搜索类型
+
+
 @end

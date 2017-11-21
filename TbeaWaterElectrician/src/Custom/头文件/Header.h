@@ -30,6 +30,9 @@
 #define ViewSafeAreInsets(view) ({UIEdgeInsets insets; if(@available(iOS 11.0, *)) {insets = view.safeAreaInsets;} else {insets = UIEdgeInsetsZero;} insets;})
 #define  StatusBarHeight      (iPhoneX ? 44.f : 20.f)
 
+#define TabBarHeight ((iPhoneX) ? 83 : 49)
+
+
 #define iphone6ratio 1.17  // 375/320
 #define iphone6pratio 1.29 //  414/320
 

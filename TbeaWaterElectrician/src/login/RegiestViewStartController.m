@@ -519,7 +519,8 @@
 {
 	WebViewContentViewController *webviewcontent = [[WebViewContentViewController alloc] init];
 	webviewcontent.strtitle = @"用户协议";
-	NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/userregisteragreement";
+//	NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/userregisteragreement";
+    NSString *str = [NSString stringWithFormat:@"%@%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpUserProtocol];
 	webviewcontent.strnewsurl = str;
 	[self.navigationController pushViewController:webviewcontent animated:YES];
 }

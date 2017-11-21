@@ -40,6 +40,7 @@
 
 -(void)getnowlocation
 {
+    self.GBURLPreFix = @"";
 	mapManager = [[BMKMapManager alloc]init];
 	BOOL ret = [mapManager start:@"WPiZu7vPXwXD0Qkk99oEgCSLlB4y5eF5" generalDelegate:self];
 	if (!ret) {
