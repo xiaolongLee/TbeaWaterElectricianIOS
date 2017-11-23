@@ -131,6 +131,7 @@ typedef enum
 #define EnNearBySeViewTag  94800    //SegmentControl控件 
 #define EnNearBySelectColorBt  93000  //购买商品选择颜色
 #define EnNearBySelectSpecifiBt  93500  //购买商品选择规格
+#define EnNearBySelectModelBt  93600  //购买商品选择规格
 #define EnNearBySelectItemBttag1  93801  //附近 全部类型
 #define EnNearBySelectItemBttag2  93802  //附近 全部类型
 #define EnNearBySelectItemBttag3  93803  //附近 全部类型

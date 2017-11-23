@@ -26,7 +26,8 @@
 	self.backgroundColor = [UIColor clearColor];
 	
 	NSArray *arraycolorlist = [dicdata objectForKey:@"colorlist"];
-	NSArray *arrayspecifilist = [dicdata objectForKey:@"specificationlist"];
+	NSArray *arrayspecifilist = [dicdata objectForKey:@"commodityspeclist"]; //规格
+    NSArray *arraymodellist = [dicdata objectForKey:@"commoditymodellist"]; //型号
 	NSDictionary *diccommodityinfo = [dicdata objectForKey:@"commodityinfo"];
 	
 	
@@ -38,18 +39,21 @@
 	[self addSubview:button];
 	
 	int countspecifi = (int)[arrayspecifilist count];
+    int countmodel = (int)[arraymodellist count];
 	int countcolor = (int)[arraycolorlist count];
 	int hspecifi = (countspecifi%4==0?countspecifi/4:countspecifi/4+1);
+    int hmodel = (countmodel%4==0?countmodel/4:countmodel/4+1);
 	int hcolor = (countcolor%4==0?countcolor/4:countcolor/4+1);
 	
-	float h = 380+(35*((hspecifi+hcolor)-2));  //这2表示有几排  当都只有一排的时候是380
+	float h = 420+(35*((hspecifi+hcolor+hmodel)-2))+IPhone_SafeBottomMargin;  //这2表示有几排  当都只有一排的时候是380
+    
 	UIImageView *imageviewbg = [[UIImageView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-h, SCREEN_WIDTH, h)];
 	imageviewbg.backgroundColor = [UIColor whiteColor];
 	[self addSubview:imageviewbg];
 	
 	
-	UILabel *labelspecifi = [[UILabel alloc] initWithFrame:CGRectMake(10, imageviewbg.frame.origin.y+10, 100, 20)];
-	labelspecifi.text = @"颜色、规格";
+	UILabel *labelspecifi = [[UILabel alloc] initWithFrame:CGRectMake(10, imageviewbg.frame.origin.y+10, 150, 20)];
+	labelspecifi.text = @"颜色、型号、规格";
 	labelspecifi.font = FONTMEDIUM(13.0f);
 	labelspecifi.textColor = ColorBlackdeep;
 	[self addSubview:labelspecifi];
@@ -95,9 +99,14 @@
 	UIView *viewspecifi = [self addselectspecifi:arrayspecifilist Frame:CGRectMake(0, viewcolor.frame.origin.y+viewcolor.frame.size.height+10, SCREEN_WIDTH, 100)];
 	[self addSubview:viewspecifi];
 	
+    //型号
+    UIView *viewmodel = [self addselectmodel:arraymodellist Frame:CGRectMake(0, viewcolor.frame.origin.y+viewcolor.frame.size.height+viewspecifi.frame.size.height+10, SCREEN_WIDTH, 100)];
+    [self addSubview:viewmodel];
+    
+    
 
 	UIButton *btdone = [UIButton buttonWithType:UIButtonTypeCustom];
-	btdone.frame = CGRectMake(10, viewspecifi.frame.origin.y+viewspecifi.frame.size.height+10, SCREEN_WIDTH-20, 40);
+	btdone.frame = CGRectMake(10, viewmodel.frame.origin.y+viewmodel.frame.size.height+10, SCREEN_WIDTH-20, 40);
 	[btdone setTitle:@"确认" forState:UIControlStateNormal];
 	btdone.layer.cornerRadius = 3.0f;
 	btdone.backgroundColor = Colorredcolor;
@@ -179,6 +188,77 @@
 	return viewcolor;
 }
 
+//型号
+-(UIView *)addselectmodel:(NSArray *)arraymodel Frame:(CGRect)frame
+{
+    UIView *viewcolor = [[UIView alloc] initWithFrame:frame];
+    viewcolor.backgroundColor = [UIColor clearColor];
+    
+    UILabel *labelkucun = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, 100, 20)];
+    labelkucun.text = @"型号";
+    labelkucun.font = FONTN(13.0f);
+    labelkucun.textColor = ColorBlackshallow;
+    [viewcolor addSubview:labelkucun];
+    
+    float nowwidth = (SCREEN_WIDTH-20-30)/4;
+    float heightnow = labelkucun.frame.size.height+5;
+    int counth = 0;
+    int countv = 0;
+    int countmodel = (int)[arraymodel count];
+    counth = (countmodel%4==0?countmodel/4:countmodel/4+1);
+    
+    
+    for(int i=0;i<counth;i++)
+    {
+        DLog(@"heightnow===%f",heightnow);
+        if(i<counth-1)
+        {
+            countv = 4;
+        }
+        else
+        {
+            countv = countmodel%4;
+        }
+        
+        for(int j=0;j<countv;j++)
+        {
+            NSDictionary *dictemp = [arraymodel objectAtIndex:i*4+j];
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            button.frame = CGRectMake(10+(nowwidth+10)*j,heightnow,nowwidth,30);
+            button.titleLabel.font = FONTN(13.0f);
+            button.layer.cornerRadius = 3.0f;
+            button.clipsToBounds = YES;
+            [button setTitleColor:ColorBlackdeep forState:UIControlStateNormal];
+            [button setTitle:[dictemp objectForKey:@"name"] forState:UIControlStateNormal];
+            if(i==0&&j==0)
+            {
+                modelid = [dictemp objectForKey:@"id"];
+                button.backgroundColor = ColorBlue;
+                [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            }
+            else
+            {
+                button.backgroundColor = [UIColor whiteColor];
+                button.layer.borderColor = ColorBlackdeep.CGColor;
+                button.layer.borderWidth = 0.5;
+                [button setTitleColor:ColorBlackdeep forState:UIControlStateNormal];
+            }
+            button.tag = EnNearBySelectModelBt+i*4+j;
+            [button addTarget:self action:@selector(clickmodel:) forControlEvents:UIControlEventTouchUpInside];
+            [viewcolor addSubview:button];
+        }
+        heightnow = heightnow+(30+5);
+        
+    }
+    UIImageView *imageviewline = [[UIImageView alloc] initWithFrame:CGRectMake(0, heightnow, SCREEN_WIDTH, 1)];
+    imageviewline.backgroundColor = Colorgray;
+    [viewcolor addSubview:imageviewline];
+    
+    viewcolor.frame = CGRectMake(viewcolor.frame.origin.x, viewcolor.frame.origin.y, viewcolor.frame.size.width,imageviewline.frame.origin.y+1);
+    
+    return viewcolor;
+}
+
 //颜色
 -(UIView *)addselectcolor:(NSArray *)arraycolor Frame:(CGRect)frame
 {
@@ -253,7 +333,7 @@
 -(void)clickspecifi:(id)sender
 {
 	
-	NSArray *arrayspecifilist = [diccommidifyinfo objectForKey:@"specificationlist"];
+	NSArray *arrayspecifilist = [diccommidifyinfo objectForKey:@"commodityspeclist"];
 	for(int i=0;i<20;i++)
 	{
 		UIButton *button = [self viewWithTag:EnNearBySelectSpecifiBt+i];
@@ -274,6 +354,32 @@
 	
 	NSDictionary *dictemp = [arrayspecifilist objectAtIndex:tagnow];
 	specifiid = [dictemp objectForKey:@"id"];
+}
+
+-(void)clickmodel:(id)sender
+{
+    
+    NSArray *arraymodellist = [diccommidifyinfo objectForKey:@"commoditymodellist"];
+    for(int i=0;i<20;i++)
+    {
+        UIButton *button = [self viewWithTag:EnNearBySelectModelBt+i];
+        if(button.isEnabled == YES)
+        {
+            button.backgroundColor = [UIColor whiteColor];
+            button.layer.borderColor = ColorBlackdeep.CGColor;
+            button.layer.borderWidth = 0.5;
+            [button setTitleColor:ColorBlackdeep forState:UIControlStateNormal];
+        }
+    }
+    UIButton *button = (UIButton *)sender;
+    int tagnow = (int)[button tag]-EnNearBySelectModelBt;
+    button.layer.borderColor = [UIColor clearColor].CGColor;
+    button.layer.borderWidth = 0;
+    button.backgroundColor = ColorBlue;
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    NSDictionary *dictemp = [arraymodellist objectAtIndex:tagnow];
+    modelid = [dictemp objectForKey:@"id"];
 }
 
 -(void)clickcolor:(id)sender
@@ -381,19 +487,26 @@
 	UITextField *textfield = [self viewWithTag:EnShoppingCarTextNumberTag1];
 	if([self.fromflag isEqualToString:@"1"])  //表示来自购物车
 	{
-		if([self.delegate1 respondsToSelector:@selector(DGAddOrderInfo:Specifi:Number:)])
+		if([self.delegate1 respondsToSelector:@selector(DGAddOrderInfo:Specifi:Number:Modelid:)])
 		{
-			[self.delegate1 DGAddOrderInfo:colorid Specifi:specifiid Number:textfield.text];
+            [self.delegate1 DGAddOrderInfo:colorid Specifi:specifiid Number:textfield.text Modelid:modelid];
 		}
 	}
-	else
+	else if([self.fromflag isEqualToString:@"2"])
 	{
-		if([self.delegate1 respondsToSelector:@selector(DGGoToJieSuanGoods:Specifi:Number:)])
+		if([self.delegate1 respondsToSelector:@selector(DGGoToJieSuanGoods:Specifi:Number:Modelid:)])
 		{
-			[self.delegate1 DGGoToJieSuanGoods:colorid Specifi:specifiid Number:textfield.text];
+			[self.delegate1 DGGoToJieSuanGoods:colorid Specifi:specifiid Number:textfield.text Modelid:modelid];
 		}
 		
 	}
+    else
+    {
+        if([self.delegate1 respondsToSelector:@selector(DGClickSelectModelSpecifi:Specifi:Number:Modelid:)])
+        {
+            [self.delegate1 DGClickSelectModelSpecifi:colorid Specifi:specifiid Number:textfield.text Modelid:modelid];
+        }
+    }
 	[self removeFromSuperview];
 	
 	

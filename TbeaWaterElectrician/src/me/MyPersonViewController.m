@@ -49,6 +49,7 @@
 	}
 	app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	content1 = [[NSMutableArray alloc] init];
+    content0 = [[NSMutableArray alloc] init];
 	maskView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];;
 	maskView.backgroundColor = [UIColor blackColor];
 	maskView.alpha = 0;
@@ -197,7 +198,7 @@
 			[cell.contentView addSubview:labelvalue];
 			break;
         case 4:
-            labeltitle.text = @"工龄";
+            labeltitle.text = @"年龄";
             labelvalue.text = [dicuserinfo objectForKey:@"oldyears"];
             [cell.contentView addSubview:labelvalue];
             break;
@@ -329,8 +330,10 @@
 	if([paratype isEqualToString:@"brith"])
 	{
 		NSArray  *array = [paravalue componentsSeparatedByString:@","];
-		[params setObject:[array objectAtIndex:1] forKey:@"birthday"];
-		[params setObject:[array objectAtIndex:0] forKey:@"birthmonth"];
+		[params setObject:[array objectAtIndex:2] forKey:@"birthday"];
+		[params setObject:[array objectAtIndex:1] forKey:@"birthmonth"];
+        [params setObject:[array objectAtIndex:0] forKey:@"birthyear"];
+        
 	}
 	else
 		[params setObject:paravalue forKey:paratype];
@@ -402,8 +405,14 @@
 	}
 	else if(sender == 3)   //选择生日
 	{
+
+        for(int i=0;i<100;i++)
+        {
+            [content0 addObject:[NSString stringWithFormat:@"%d",1918+i]];
+        }
 		content1 = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",nil];
 		content2 = [NSMutableArray arrayWithObjects:@"1",@"2",@"3",@"4",@"5",@"6",@"7",@"8",@"9",@"10",@"11",@"12",@"13",@"14",@"15",@"16",@"17",@"18",@"19",@"20",@"21",@"22",@"23",@"24",@"25",@"26",@"27",@"28",@"29",@"30",@"31",nil];
+        
 		result2 = [content2 objectAtIndex:0];
 	}
 	
@@ -417,7 +426,9 @@
 	[app.window addSubview:viewsheet];
 	
 	UIPickerView *picview = (UIPickerView *)[app.window viewWithTag:9990];
-	[picview selectRow:[content1 count]/2 inComponent:0 animated:NO];
+	[picview selectRow:[content0 count]/2 inComponent:0 animated:NO];
+    [picview selectRow:[content1 count]/2 inComponent:1 animated:NO];
+    result0  = [content0 objectAtIndex:[content0 count]/2];
 	result1  = [content1 objectAtIndex:[content1 count]/2];
 	
 	[UIView animateWithDuration:0.3 animations:^{
@@ -451,7 +462,7 @@
 
 	if(selectmodel == 2) //修改性别
 	{
-		NSIndexPath *indexpath= [NSIndexPath indexPathForRow:1 inSection:0];
+		NSIndexPath *indexpath= [NSIndexPath indexPathForRow:2 inSection:0];
 		UITableViewCell *cell = [tableview cellForRowAtIndexPath:indexpath];
 		UILabel *labevalue = [cell viewWithTag:EnUserInfoCellLabelTag];
 		labevalue.text = result1;
@@ -461,13 +472,13 @@
 	}
 	else if(selectmodel == 3)//修改生日
 	{
-		NSIndexPath *indexpath= [NSIndexPath indexPathForRow:2 inSection:0];
+		NSIndexPath *indexpath= [NSIndexPath indexPathForRow:3 inSection:0];
 		UITableViewCell *cell = [tableview cellForRowAtIndexPath:indexpath];
 		UILabel *labevalue = [cell viewWithTag:EnUserInfoCellLabelTag];
-		labevalue.text = [NSString stringWithFormat:@"%@月%@日",result1,result2];
+		labevalue.text = [NSString stringWithFormat:@"%@年%@月%@日",result0,result1,result2];
 		
 		
-		[self modifyuserinfo:@"brith" ParaValue:[NSString stringWithFormat:@"%@,%@",result1,result2]];
+		[self modifyuserinfo:@"brith" ParaValue:[NSString stringWithFormat:@"%@,%@,%@",result0,result1,result2]];
 	}
 	
 	
@@ -482,7 +493,7 @@
 {
 	if(selectmodel == 2)
 		return 1;
-	return 2;
+	return 3;
 }
 
 // 返回当前列显示的行数
@@ -496,9 +507,11 @@
 	else if(selectmodel == 3)
 	{
 		if(component == 0)
-			return [content1 count];
+			return [content0 count];
 		else if(component == 1)
-			return [content2 count];
+			return [content1 count];
+        else if(component == 2)
+            return [content2 count];
 	}
 	return 0;
 }
@@ -514,9 +527,11 @@
 	else if(selectmodel == 3)
 	{
 		if(component == 0)
-			return [content1 objectAtIndex:row];
+			return [content0 objectAtIndex:row];
 		else if(component == 1)
-			return [content2 objectAtIndex:row];
+			return [content1 objectAtIndex:row];
+        else if(component == 2)
+            return [content2 objectAtIndex:row];
 	}
 	return @"";
 }
@@ -531,9 +546,11 @@
 	else if(selectmodel ==3)
 	{
 		if(component == 0)
-			result1 = [content1 objectAtIndex:row];
+			result0 = [content0 objectAtIndex:row];
 		else if(component == 1)
-			result2 = [content2 objectAtIndex:row];
+			result1 = [content1 objectAtIndex:row];
+        else if(component == 2)
+            result2 = [content2 objectAtIndex:row];
 
 	}
 }

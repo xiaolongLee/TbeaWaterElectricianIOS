@@ -14,8 +14,10 @@
 	AppDelegate *app;
 	NSDictionary *dicuserinfo;
 	UIView *maskView;
+    NSString *result0;
 	NSString *result1;
 	NSString *result2;
+    NSMutableArray *content0;
 	NSMutableArray *content1;
 	NSMutableArray *content2;
 	UIImage *imageheader;

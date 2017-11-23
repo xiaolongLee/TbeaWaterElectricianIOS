@@ -158,6 +158,13 @@
     //	goodsdetail.fromflag = @"1";
         [self.navigationController pushViewController:goodsdetail animated:YES];
     }
+    else if(_searchtype == EnSearchShop)
+    {
+        NearByJXSDetailViewController *jxsdetail = [[NearByJXSDetailViewController alloc] init];
+        jxsdetail.dicjsxfrom = dictemp;
+        jxsdetail.strdistribuid = [dictemp objectForKey:@"id"];
+        [self.navigationController pushViewController:jxsdetail animated:YES];
+    }
     else
     {
         if([[dictemp objectForKey:@"companytypeid"] isEqualToString:@"firstleveldistributor"])
@@ -187,9 +194,9 @@
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	[params setObject:self.searchtext forKey:@"keyword"];
     NSString *strtype;
-    if(self.searchtype == 0)
+    if(self.searchtype == 1)
         strtype = @"commodity";
-    else if(self.searchtype == 2)
+    else if(self.searchtype == 3)
         strtype = @"distributor";
     else
         strtype = @"companyseller";

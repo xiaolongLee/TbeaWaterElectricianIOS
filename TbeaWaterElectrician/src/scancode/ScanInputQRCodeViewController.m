@@ -52,7 +52,7 @@
 -(void)initviewroot
 {
 	UILabel *labeltitle = [[UILabel alloc] initWithFrame:CGRectMake(20, 100, 190, 20)];
-	labeltitle.text = @"请输入产品编码的16位数字";
+	labeltitle.text = @"输入二维码编号";
 	labeltitle.font = FONTN(14.0f);
 	labeltitle.textColor = ColorBlackGray;
 	[self.view addSubview:labeltitle];
@@ -98,7 +98,7 @@
 	}
 	else
 	{
-		[MBProgressHUD showError:@"请输入扫描码" toView:self.view];
+		[MBProgressHUD showError:@"请输入输入二维码编号" toView:self.view];
 	}
 }
 

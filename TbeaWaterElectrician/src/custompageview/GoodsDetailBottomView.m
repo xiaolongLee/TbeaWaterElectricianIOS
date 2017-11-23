@@ -127,9 +127,7 @@
 	if([self.delegate1 respondsToSelector:@selector(DeClictAddGWC:)])
 	{
 		[self.delegate1 DeClictAddGWC:@"1"]; //1表示购物进
-	}
-	
-	
+	}	
 }
 
 -(void)clickbuynow:(id)sender

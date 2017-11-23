@@ -22,7 +22,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 	[self.navigationController setNavigationBarHidden:NO];
-	[[self.navigationController.navigationBar viewWithTag:EnNearBySeViewTag] setAlpha:0];
+	[[self.navigationController.navigationBar viewWithTag:EnNearBySeViewTag] removeFromSuperview];
 	[[self.navigationController.navigationBar viewWithTag:EnNearSearchViewBt] removeFromSuperview];
 }
 

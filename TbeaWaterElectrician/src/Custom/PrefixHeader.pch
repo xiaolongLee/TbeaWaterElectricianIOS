@@ -144,6 +144,8 @@
 #define HtmlURLHelpDetail @"userhelpdetail?questionid="  //帮助中心
 #define HttpDistribute @"business?companyid=" //分经销商详情
 #define HttpTaskDetail @"taskdetail?taskid=" //任务详情
+#define HttpProductDetail @"commoditysaleinfo?commodityid=" //商品详情
+#define HttpProductDetail1 @"commoditydetail?commodityid=" //商品详情
 
 //#define URLHeader @"http://www.u-shang.net/testinterface/index.php/Index"
 

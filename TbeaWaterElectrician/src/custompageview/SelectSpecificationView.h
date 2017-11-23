@@ -11,6 +11,7 @@
 @interface SelectSpecificationView : UIView<UITextFieldDelegate>
 {
 	NSString *specifiid;
+    NSString *modelid;
 	NSString *colorid;
 	NSDictionary *diccommidifyinfo;
 }

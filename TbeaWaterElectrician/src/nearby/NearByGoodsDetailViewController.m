@@ -22,7 +22,8 @@
 -(void)viewWillAppear:(BOOL)animated
 {
 	[self getgouwuchenumber:self.strproductid];
-	[[self.navigationController.navigationBar viewWithTag:EnNearBySeViewTag] setAlpha:1];
+    
+//	[[self.navigationController.navigationBar viewWithTag:EnNearBySeViewTag] setAlpha:1];
 	[[self.navigationController.navigationBar viewWithTag:EnNearSearchViewBt] removeFromSuperview];
 }
 
@@ -132,11 +133,12 @@
 	{
 		self.edgesForExtendedLayout = UIRectEdgeNone;
 	}
+    app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
 	arrayheight = [[NSMutableArray alloc] init];
 	[[self.navigationController.navigationBar viewWithTag:EnNearSearchViewBt] removeFromSuperview];
 	[self addwebview];
 	selectitem = EnGoods;
-	app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+	
 	NSMutableArray *titleSourcd = [NSMutableArray arrayWithObjects:@"商品", @"详情", @"评价", nil];
 	HYSegmentControl *segmentControl = [HYSegmentControl segmentColor:CGRectMake(80, 4, SCREEN_WIDTH-160, 40) titleSource:titleSourcd titleColor:Colorgray selectTitleColor:[UIColor whiteColor] titleFont:[UIFont systemFontOfSize:15] selectTiteFont:[UIFont systemFontOfSize:15] backgroundColor:[UIColor clearColor] bottomLingColor:[UIColor whiteColor]];
 	
@@ -158,7 +160,8 @@
 				[self addwebview];
 			}
 			selectitem = EnGoods;
-			NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/commoditysaleinfo?commodityid=";
+			NSString *str = [NSString stringWithFormat:@"%@/%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpProductDetail];
+       //     @"http://www.u-shang.net/enginterface/index.php/Apph5/commoditysaleinfo?commodityid=";
 			str = [NSString stringWithFormat:@"%@%@&userid=%@&longitude=%@&latitude=%@",str,self.strproductid,app.userinfo.userid,[NSString stringWithFormat:@"%f",app.dili.longitude],[NSString stringWithFormat:@"%f",app.dili.latitude]];
 			
 			NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
@@ -179,7 +182,9 @@
 				[self addwebview];
 			}
 			selectitem = EnDetail;
-			NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/commoditydetail?commodityid=";
+			NSString *str = [NSString stringWithFormat:@"%@/%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpProductDetail1];
+            
+     //       @"http://www.u-shang.net/enginterface/index.php/Apph5/commoditydetail?commodityid=";
 			str = [NSString stringWithFormat:@"%@%@",str,self.strproductid];
 			NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
 			[webview loadRequest:request];
@@ -209,7 +214,7 @@
 	[self.navigationController.navigationBar addSubview:segmentControl];
 
 	
-	goodview = [[GoodsDetailBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-64-50, SCREEN_WIDTH, 50)];
+	goodview = [[GoodsDetailBottomView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-StatusBarHeight-44-50-IPhone_SafeBottomMargin, SCREEN_WIDTH, 50)];
 
 
 	goodview.delegate1 = self;
@@ -227,9 +232,10 @@
 //	NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/commoditysaleinfo?commodityid=";
 //	str = [NSString stringWithFormat:@"%@%@",str,self.strproductid];
 	
-	NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/commoditysaleinfo?commodityid=";
+	NSString *str = [NSString stringWithFormat:@"%@/%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpProductDetail];
+//    @"http://www.u-shang.net/enginterface/index.php/Apph5/commoditysaleinfo?commodityid=";
 	str = [NSString stringWithFormat:@"%@%@&userid=%@&longitude=%@&latitude=%@",str,self.strproductid,app.userinfo.userid,[NSString stringWithFormat:@"%f",app.dili.longitude],[NSString stringWithFormat:@"%f",app.dili.latitude]];
-	
+    DLog(@"strurl=====%@",str);
 	NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
 	[webview loadRequest:request];
 	
@@ -276,15 +282,17 @@
 	}
 	else
 	{
-		NSString *str = @"http://www.u-shang.net/enginterface/index.php/Apph5/commoditysaleinfo?commodityid=";
-		str = [NSString stringWithFormat:@"%@%@&recvaddressid=%@&userid=%@&longitude=%@&latitude=%@",str,self.strproductid,[sid objectForKey:@"id"],app.userinfo.userid,[NSString stringWithFormat:@"%f",app.dili.longitude],[NSString stringWithFormat:@"%f",app.dili.latitude]];
+        FCrecvaddressid = [sid objectForKey:@"id"];
+		NSString *str = [NSString stringWithFormat:@"%@/%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpProductDetail];
+        //@"http://www.u-shang.net/enginterface/index.php/Apph5/commoditysaleinfo?commodityid=";
+		str = [NSString stringWithFormat:@"%@%@&recvaddressid=%@&userid=%@&longitude=%@&latitude=%@",str,self.strproductid,FCrecvaddressid,app.userinfo.userid,[NSString stringWithFormat:@"%f",app.dili.longitude],[NSString stringWithFormat:@"%f",app.dili.latitude]];
 		
 		NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
 		[webview loadRequest:request];
 	}
 }
 
--(void)DGGoToJieSuanGoods:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number
+-(void)DGGoToJieSuanGoods:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number Modelid:(NSString *)modelid
 {
 	if(![AddInterface judgeislogin])
 	{
@@ -292,12 +300,31 @@
 	}
 	else
 	{
-		[self addgoumaiorder:self.strproductid Distributorid:self.strdistrid Specifid:specifid Colorid:colorid Number:number];
+        [self addgoumaiorder:self.strproductid Distributorid:self.strdistrid Specifid:specifid Colorid:colorid Number:number Modelid:modelid];
 	}
 }
 
+-(void)DGClickSelectModelSpecifi:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number Modelid:(NSString *)modelid
+{
+    if(![AddInterface judgeislogin])
+    {
+        [self addloginview];
+    }
+    else
+    {
+        FCcolorid = colorid;
+        FCmodelid = modelid;
+        FCspecifiid = specifid;
+        NSString *str = [NSString stringWithFormat:@"%@/%@",[app.GBURLPreFix length]>0?app.GBURLPreFix:URLHeader,HttpProductDetail];
+        str = [NSString stringWithFormat:@"%@%@&recvaddressid=%@&userid=%@&longitude=%@&latitude=%@&colorid=%@&commodityspecid=%@&commoditymodelid=%@",str,self.strproductid,FCrecvaddressid,app.userinfo.userid,[NSString stringWithFormat:@"%f",app.dili.longitude],[NSString stringWithFormat:@"%f",app.dili.latitude],FCcolorid,FCspecifiid,FCmodelid];
+        
+        NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:str]];
+        [webview loadRequest:request];
+    }
+}
 
--(void)DGAddOrderInfo:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number
+
+-(void)DGAddOrderInfo:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number Modelid:(NSString *)modelid
 {
 	if(![AddInterface judgeislogin])
 	{
@@ -305,7 +332,7 @@
 	}
 	else
 	{
-		[self requestaddorder:self.strproductid Distributorid:self.strdistrid Specifid:specifid Colorid:colorid Number:number];
+		[self requestaddorder:self.strproductid Distributorid:self.strdistrid Specifid:specifid Colorid:colorid Number:number Modelid:modelid];
 	}
 }
 
@@ -378,7 +405,8 @@
 	NSString *requestString = [[request URL] absoluteString];
 	if([requestString rangeOfString:@"selectspecification.com"].location != NSNotFound)
 	{
-		[goodview clickaddgwc:nil];
+		//[goodview clickaddgwc:nil];
+        [self DeClictAddGWC:@"3"]; //表示点击的页面的型号规格选择
 		return NO;
 	}
 	else if([requestString rangeOfString:@"selectaddr.com"].location != NSNotFound)
@@ -553,7 +581,7 @@
 		 if([[dic objectForKey:@"success"] isEqualToString:@"true"])
 		 {
 			 dicgoodsinfo = [[dic objectForKey:@"data"] objectForKey:@"commodityinfo"];
-			 SelectSpecificationView *specifi = [[SelectSpecificationView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT) DicData:[dic objectForKey:@"data"]];
+			 SelectSpecificationView *specifi = [[SelectSpecificationView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-IPhone_SafeBottomMargin-StatusBarHeight-44) DicData:[dic objectForKey:@"data"]];
 			 specifi.delegate1 = self;
 			 specifi.fromflag = fromflag;
 			 [self.view addSubview:specifi];
@@ -622,7 +650,7 @@
 
 
 
--(void)requestaddorder:(NSString *)commodityid Distributorid:(NSString *)distributorid Specifid:(NSString *)specificationid Colorid:(NSString *)colorid Number:(NSString *)number
+-(void)requestaddorder:(NSString *)commodityid Distributorid:(NSString *)distributorid Specifid:(NSString *)specificationid Colorid:(NSString *)colorid Number:(NSString *)number Modelid:(NSString *)modelid
 {
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	[params setObject:distributorid forKey:@"distributorid"];
@@ -630,7 +658,7 @@
 	[params setObject:specificationid forKey:@"specificationid"];
 	[params setObject:colorid forKey:@"colorid"];
 	[params setObject:number forKey:@"number"];
-	
+    [params setObject:modelid forKey:@"commoditymodelid"];
 	
 	[RequestInterface doGetJsonWithParametersNoAn:params App:app RequestCode:@"TBEAENG003001010000" ReqUrl:URLHeader ShowView:self.view alwaysdo:^
 	 {
@@ -653,7 +681,7 @@
 }
 
 
--(void)addgoumaiorder:(NSString *)commodityid Distributorid:(NSString *)distributorid Specifid:(NSString *)specificationid Colorid:(NSString *)colorid Number:(NSString *)number
+-(void)addgoumaiorder:(NSString *)commodityid Distributorid:(NSString *)distributorid Specifid:(NSString *)specificationid Colorid:(NSString *)colorid Number:(NSString *)number Modelid:(NSString *)modelid
 {
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	[params setObject:distributorid forKey:@"distributorid"];
@@ -661,7 +689,7 @@
 	[params setObject:specificationid forKey:@"specificationid"];
 	[params setObject:colorid forKey:@"colorid"];
 	[params setObject:number forKey:@"number"];
-	
+	[params setObject:modelid forKey:@"commoditymodelid"];
 	
 	[RequestInterface doGetJsonWithParametersNoAn:params App:app RequestCode:@"TBEAENG003001011000" ReqUrl:URLHeader ShowView:self.view alwaysdo:^
 	 {

@@ -19,6 +19,12 @@
 	NSDictionary *dicgoodsinfo;
 	
 	GoodsDetailBottomView *goodview;
+    
+    NSString *FCrecvaddressid;
+    NSString *FCspecifiid;
+    NSString *FCmodelid;
+    NSString *FCcolorid;
+    
 }
 @property(nonatomic,strong)NSString *fromflag;
 @property(nonatomic,strong)NSString *strdistributype;//经销商类型 1.notdistributor 不跳转  2.firstleveldistributor 总经销商  3.distributor  分经销商

@@ -30,9 +30,12 @@
 
 -(void)DGModifyPersonInfo:(NSString *)str;  //更新个人信息
 
--(void)DGAddOrderInfo:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number;  //加入购物车的时候
+-(void)DGAddOrderInfo:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number Modelid:(NSString *)modelid;  //加入购物车的时候
 
--(void)DGGoToJieSuanGoods:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number;  //下单的时候
+-(void)DGGoToJieSuanGoods:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number Modelid:(NSString *)modelid;  //下单的时候
+
+-(void)DGClickSelectModelSpecifi:(NSString *)colorid Specifi:(NSString *)specifid Number:(NSString *)number Modelid:(NSString *)modelid;  //选择网页上的型号规格后刷新 网页
+
 
 -(void)DGClickJXSAddrGotoMap:(id)sender;   //点击经销商地址去地图
 

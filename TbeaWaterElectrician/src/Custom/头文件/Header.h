@@ -32,6 +32,7 @@
 
 #define TabBarHeight ((iPhoneX) ? 83 : 49)
 
+#define IPhone_SafeBottomMargin  (iPhoneX ? 30.f : 0.f)
 
 #define iphone6ratio 1.17  // 375/320
 #define iphone6pratio 1.29 //  414/320
