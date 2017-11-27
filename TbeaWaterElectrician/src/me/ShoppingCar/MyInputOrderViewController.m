@@ -51,7 +51,7 @@
 	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithCustomView:contentView];
 	self.navigationItem.leftBarButtonItem = barButtonItem;
 	
-	tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStylePlain];
+	tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-StatusBarHeight-44-IPhone_SafeBottomMargin) style:UITableViewStylePlain];
 	tableview.delegate = self;
 	tableview.dataSource = self;
 	tableview.backgroundColor = [UIColor clearColor];
@@ -63,7 +63,7 @@
 
 -(void)addremoveview
 {
-	UIView *viewdoen = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-64-50, SCREEN_WIDTH, 50)];
+	UIView *viewdoen = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-40-StatusBarHeight-50-IPhone_SafeBottomMargin, SCREEN_WIDTH, 50)];
 	viewdoen.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:viewdoen];
 	
@@ -508,6 +508,13 @@
 -(void)getorderinfo
 {
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    NSString *strids = @"";
+    for(int i=0;i<[_arraycommonditypic count];i++)
+    {
+        NSDictionary *dictemp = [_arraycommonditypic objectAtIndex:i];
+        strids = [strids length]==0?[dictemp objectForKey:@"orderdetailid"]:[NSString stringWithFormat:@"%@,%@",strids,[dictemp objectForKey:@"orderdetailid"]];
+    }
+    [params setObject:strids forKey:@"ids"];
 	[RequestInterface doGetJsonWithParametersNoAn:params App:app RequestCode:@"TBEAENG003001015000" ReqUrl:URLHeader ShowView:self.view alwaysdo:^
 	 {
 		 
@@ -527,7 +534,7 @@
 			 
 			 tableview.delegate = self;
 			 tableview.dataSource = self;
-			 [tableview reloadData];
+             [tableview reloadData];
 		 }
 		 else
 		 {

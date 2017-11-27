@@ -62,7 +62,7 @@
 	[self initfootview];
 	
 	UIButton *btbottom = [UIButton buttonWithType:UIButtonTypeCustom];
-	btbottom.frame = CGRectMake(20, SCREEN_HEIGHT-64-50, SCREEN_WIDTH-40, 35);
+	btbottom.frame = CGRectMake(20, SCREEN_HEIGHT-40-StatusBarHeight-50-IPhone_SafeBottomMargin, SCREEN_WIDTH-40, 35);
 	btbottom.backgroundColor = [UIColor whiteColor];
 	[btbottom setTitle:@"回到首页" forState:UIControlStateNormal];
 	[btbottom setTitleColor:ColorBlackdeep forState:UIControlStateNormal];

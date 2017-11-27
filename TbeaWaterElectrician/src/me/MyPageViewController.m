@@ -34,7 +34,7 @@
 -(void)initview
 {
 	app = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-	self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64) style:UITableViewStylePlain];
+	self.tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-StatusBarHeight-40) style:UITableViewStylePlain];
 	self.tableview.backgroundColor = [UIColor clearColor];
 	[self.view addSubview:self.tableview];
 	

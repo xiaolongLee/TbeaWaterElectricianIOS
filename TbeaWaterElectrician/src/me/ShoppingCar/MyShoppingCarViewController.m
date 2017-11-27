@@ -68,7 +68,7 @@
 	arrarselectremoveitem = [[NSMutableArray alloc] init];
 	arrarselectsettlementitem = [[NSMutableArray alloc] init];
 	collectionedit = EnCollectionEditStart;
-	tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-64-40) style:UITableViewStylePlain];
+	tableview = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT-StatusBarHeight-40-40-IPhone_SafeBottomMargin) style:UITableViewStylePlain];
 	tableview.backgroundColor = [UIColor whiteColor];
 	[self.view addSubview:tableview];
 	[self setExtraCellLineHidden:tableview];
@@ -106,7 +106,7 @@
 
 -(void)addsettlementview
 {
-	UIView *viewsettlement = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-64-40, SCREEN_WIDTH, 40)];
+	UIView *viewsettlement = [[UIView alloc] initWithFrame:CGRectMake(0, SCREEN_HEIGHT-StatusBarHeight-40-40-IPhone_SafeBottomMargin, SCREEN_WIDTH, 40)];
 	viewsettlement.backgroundColor = ColorMoregray;
 	viewsettlement.tag = EnShoppingCarSettlementTag;
 	[self.view addSubview:viewsettlement];
