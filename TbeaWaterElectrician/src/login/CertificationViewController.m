@@ -19,6 +19,11 @@
 	getyanzhengcodeflag = 0;
 	self.view.backgroundColor = COLORNOW(243, 243, 243);
 	[self initview];
+    
+    if([_fromflag isEqualToString:@"3"])
+    {
+        [self getcertificationinfo];
+    }
 	// Do any additional setup after loading the view.
 }
 
@@ -33,7 +38,7 @@
 	[self.view addSubview:imageviewtopblue];
 	[imageviewtopblue mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.and.top.and.right.mas_equalTo(self.view);
-		make.height.equalTo(@64);
+		make.height.equalTo(@StatusBarAndNavigationHeight);
 	}];
 	
 	//返回按钮
@@ -46,7 +51,7 @@
 	[btreturn mas_makeConstraints:^(MASConstraintMaker *make) {
 		make.left.mas_equalTo(self.view.mas_left).offset(20);
 		make.size.mas_equalTo(CGSizeMake(44, 44));
-		make.top.mas_equalTo(20);
+		make.top.mas_equalTo(StatusBarHeight);
 	}];
 	
 	//选择框
@@ -520,6 +525,8 @@
 {
 	if([self.fromflag isEqualToString:@"1"])
 		[self.navigationController popViewControllerAnimated:YES];
+    else if([self.fromflag isEqualToString:@"3"])
+        [self.navigationController popToRootViewControllerAnimated:YES];
 	else
 		[self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
@@ -656,18 +663,22 @@
 	{
 		[MBProgressHUD showError:@"请填真实姓名和身分证书号" toView:self.view];
 	}
+    else if([_fromflag isEqualToString:@"3"])
+    {
+        [self requestregiest];
+    }
 	else if(imagecard1 == nil)
-	{
-		[MBProgressHUD showError:@"请选择身份证正面照片" toView:self.view];
-	}
-	else if(imagecard2 == nil)
-	{
-		[MBProgressHUD showError:@"请选择身份证反面照片" toView:self.view];
-	}
-	else if(imagecard3 == nil)
-	{
-		[MBProgressHUD showError:@"请选择手持身份证照片" toView:self.view];
-	}
+    {
+        [MBProgressHUD showError:@"请选择身份证正面照片" toView:self.view];
+    }
+    else if(imagecard2 == nil)
+    {
+        [MBProgressHUD showError:@"请选择身份证反面照片" toView:self.view];
+    }
+    else if(imagecard3 == nil)
+    {
+        [MBProgressHUD showError:@"请选择手持身份证照片" toView:self.view];
+    }
 	else
 	{
 		[self requestregiest];
@@ -737,13 +748,26 @@
 {
 	UITextField *textfield1 = (UITextField *)[self.view viewWithTag:EnRegiestCarRealNameTextFieldTag];
 	UITextField *textfield2 = (UITextField *)[self.view viewWithTag:EnRegiestCardNumberTextFieldTag];
+    UIImageView *imageview1 = [self.view viewWithTag:EnRegiestCardPersonPicTag1];
+    UIImageView *imageview2 = [self.view viewWithTag:EnRegiestCardPersonPicTag2];
+    UIImageView *imageview3 = [self.view viewWithTag:EnRegiestCardPersonPicTag3];
 	NSMutableDictionary *params = [NSMutableDictionary dictionary];
 	[params setObject:textfield1.text forKey:@"realname"];
 	[params setObject:textfield2.text forKey:@"personcardid"];
 	NSMutableArray *arrayimage = [[NSMutableArray alloc] init];
-	[arrayimage addObject:imagecard1];
-	[arrayimage addObject:imagecard2];
-	[arrayimage addObject:imagecard3];
+    if([_fromflag isEqualToString:@"3"])
+    {
+        [arrayimage addObject:imageview1.image];
+        [arrayimage addObject:imageview2.image];
+        [arrayimage addObject:imageview3.image];
+    }
+    else
+    {
+        [arrayimage addObject:imagecard1];
+        [arrayimage addObject:imagecard2];
+        [arrayimage addObject:imagecard3];
+    }
+    
 	[RequestInterface doGetJsonWithArraypic:arrayimage Parameters:params App:app RequestCode:@"TBEAENG005001002003" ReqUrl:URLHeader ShowView:self.view alwaysdo:^{
 		
 	} Success:^(NSDictionary *dic) {
@@ -759,6 +783,38 @@
 		}
 	}];
 	
+}
+
+-(void)getcertificationinfo
+{
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [RequestInterface doGetJsonWithParametersNoAn:params App:app RequestCode:@"TBEAENG005001002004" ReqUrl:URLHeader ShowView:self.view alwaysdo:^
+     {
+         
+     }
+                                          Success:^(NSDictionary *dic)
+     {
+         DLog(@"dic====%@",dic);
+         if([[dic objectForKey:@"success"] isEqualToString:@"true"])
+         {
+             UITextField *textfield1 = (UITextField *)[self.view viewWithTag:EnRegiestCarRealNameTextFieldTag];
+             UITextField *textfield2 = (UITextField *)[self.view viewWithTag:EnRegiestCardNumberTextFieldTag];
+             UIImageView *imageview1 = [self.view viewWithTag:EnRegiestCardPersonPicTag1];
+             UIImageView *imageview2 = [self.view viewWithTag:EnRegiestCardPersonPicTag2];
+             UIImageView *imageview3 = [self.view viewWithTag:EnRegiestCardPersonPicTag3];
+             NSDictionary *dictemp = [[dic objectForKey:@"data"] objectForKey:@"useridentifyinfo"];
+             textfield1.text = [dictemp objectForKey:@"realname"];
+             textfield2.text = [dictemp objectForKey:@"personcardid"];
+             [imageview1 setImageWithURL:[NSURL URLWithString:[dictemp objectForKey:@"personidcard1"]] placeholderImage:nil];
+             [imageview2 setImageWithURL:[NSURL URLWithString:[dictemp objectForKey:@"personidcard2"]] placeholderImage:nil];
+             [imageview3 setImageWithURL:[NSURL URLWithString:[dictemp objectForKey:@"personidcardwithperson"]] placeholderImage:nil];
+         }
+         else
+         {
+             [MBProgressHUD showError:[dic objectForKey:@"msg"] toView:app.window];
+         }
+         
+     }];
 }
 
 - (void)didReceiveMemoryWarning {

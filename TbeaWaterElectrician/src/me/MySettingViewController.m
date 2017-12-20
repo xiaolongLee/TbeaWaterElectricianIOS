@@ -21,6 +21,7 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [self.navigationController setNavigationBarHidden:NO animated:YES];
 	[[self.navigationController.navigationBar viewWithTag:EnNearSearchViewBt] removeFromSuperview];
 }
 
@@ -188,6 +189,10 @@
 			{
 				labelvalue.text = @"认证中";
 			}
+            else if([app.userinfo.useridentified isEqualToString:@"identifyfailed"])
+            {
+                labelvalue.text = @"认证失败";
+            }
 			else
 			{
 				labelvalue.text = @"已认证";
@@ -212,6 +217,7 @@
 	CertificationViewController *certification;
 	CertificationInfoViewController *cerinfo;
 	UINavigationController *nctl;
+    AuthBusinessViewController *authbusiness;
 	switch (indexPath.row)
 	{
 		case 0:
@@ -235,8 +241,10 @@
 			}
 			else
 			{
-				cerinfo = [[CertificationInfoViewController alloc] init];
-				[self.navigationController pushViewController:cerinfo animated:YES];
+                authbusiness = [[AuthBusinessViewController alloc] init];
+                [self.navigationController pushViewController:authbusiness animated:YES];
+//                cerinfo = [[CertificationInfoViewController alloc] init];
+//                [self.navigationController pushViewController:cerinfo animated:YES];
 			}
 			break;
 		case 4:

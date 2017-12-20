@@ -657,6 +657,16 @@
 		7406B8061FC40D0B0056372C /* YBPopupMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 7406B8011FC40D0B0056372C /* YBPopupMenu.m */; };
 		7406B8071FC40D0B0056372C /* YBPopupMenuPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 7406B8031FC40D0B0056372C /* YBPopupMenuPath.m */; };
 		7406B8081FC40D0B0056372C /* YBRectConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 7406B8051FC40D0B0056372C /* YBRectConst.m */; };
+		742068D31FEA61B90043A0F5 /* AuthBusinessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 742068D21FEA61B80043A0F5 /* AuthBusinessViewController.m */; };
+		742068DF1FEA63CA0043A0F5 /* me审核通过@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068D61FEA63C90043A0F5 /* me审核通过@3x.png */; };
+		742068E01FEA63CA0043A0F5 /* me审核未通过.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068D71FEA63C90043A0F5 /* me审核未通过.png */; };
+		742068E11FEA63CA0043A0F5 /* me审核未通过@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068D81FEA63C90043A0F5 /* me审核未通过@2x.png */; };
+		742068E21FEA63CA0043A0F5 /* me审核中.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068D91FEA63CA0043A0F5 /* me审核中.png */; };
+		742068E31FEA63CA0043A0F5 /* me审核通过@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068DA1FEA63CA0043A0F5 /* me审核通过@2x.png */; };
+		742068E41FEA63CA0043A0F5 /* me审核通过.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068DB1FEA63CA0043A0F5 /* me审核通过.png */; };
+		742068E51FEA63CA0043A0F5 /* me审核中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068DC1FEA63CA0043A0F5 /* me审核中@2x.png */; };
+		742068E61FEA63CA0043A0F5 /* me审核中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068DD1FEA63CA0043A0F5 /* me审核中@3x.png */; };
+		742068E71FEA63CA0043A0F5 /* me审核未通过@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 742068DE1FEA63CA0043A0F5 /* me审核未通过@3x.png */; };
 		7433756D1FB546B70003E249 /* ScanSignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7433756C1FB546B70003E249 /* ScanSignInViewController.m */; };
 		743375711FB548890003E249 /* scanqrpaydone.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433756E1FB548890003E249 /* scanqrpaydone.png */; };
 		743375721FB548890003E249 /* scanqrpaydone@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433756F1FB548890003E249 /* scanqrpaydone@3x.png */; };
@@ -682,6 +692,8 @@
 		743375A21FB5A84F0003E249 /* arrawbluegray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 743375991FB5A84E0003E249 /* arrawbluegray@2x.png */; };
 		743375A31FB5A84F0003E249 /* arrawgray@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433759A1FB5A84E0003E249 /* arrawgray@2x.png */; };
 		743375A41FB5A84F0003E249 /* arrawbluegray@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7433759B1FB5A84F0003E249 /* arrawbluegray@3x.png */; };
+		74D7CEBA1FEAA19D002A0DAD /* AuthEndViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D7CEB91FEAA19D002A0DAD /* AuthEndViewController.m */; };
+		74D7CEBD1FEAA9BA002A0DAD /* AuthNotPassReasonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 74D7CEBC1FEAA9BA002A0DAD /* AuthNotPassReasonViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -1636,6 +1648,17 @@
 		7406B80C1FC41E8B0056372C /* MJChiBaoZiHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiHeader.h; sourceTree = "<group>"; };
 		7406B80D1FC41E8B0056372C /* MJChiBaoZiFooter2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJChiBaoZiFooter2.h; sourceTree = "<group>"; };
 		7406B80E1FC41E8B0056372C /* MJDIYHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJDIYHeader.h; sourceTree = "<group>"; };
+		742068D11FEA61B80043A0F5 /* AuthBusinessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthBusinessViewController.h; sourceTree = "<group>"; };
+		742068D21FEA61B80043A0F5 /* AuthBusinessViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthBusinessViewController.m; sourceTree = "<group>"; };
+		742068D61FEA63C90043A0F5 /* me审核通过@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核通过@3x.png"; sourceTree = "<group>"; };
+		742068D71FEA63C90043A0F5 /* me审核未通过.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核未通过.png"; sourceTree = "<group>"; };
+		742068D81FEA63C90043A0F5 /* me审核未通过@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核未通过@2x.png"; sourceTree = "<group>"; };
+		742068D91FEA63CA0043A0F5 /* me审核中.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核中.png"; sourceTree = "<group>"; };
+		742068DA1FEA63CA0043A0F5 /* me审核通过@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核通过@2x.png"; sourceTree = "<group>"; };
+		742068DB1FEA63CA0043A0F5 /* me审核通过.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核通过.png"; sourceTree = "<group>"; };
+		742068DC1FEA63CA0043A0F5 /* me审核中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核中@2x.png"; sourceTree = "<group>"; };
+		742068DD1FEA63CA0043A0F5 /* me审核中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核中@3x.png"; sourceTree = "<group>"; };
+		742068DE1FEA63CA0043A0F5 /* me审核未通过@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "me审核未通过@3x.png"; sourceTree = "<group>"; };
 		7433756B1FB546B70003E249 /* ScanSignInViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScanSignInViewController.h; sourceTree = "<group>"; };
 		7433756C1FB546B70003E249 /* ScanSignInViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScanSignInViewController.m; sourceTree = "<group>"; };
 		7433756E1FB548890003E249 /* scanqrpaydone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scanqrpaydone.png; sourceTree = "<group>"; };
@@ -1665,6 +1688,10 @@
 		743375991FB5A84E0003E249 /* arrawbluegray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawbluegray@2x.png"; sourceTree = "<group>"; };
 		7433759A1FB5A84E0003E249 /* arrawgray@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawgray@2x.png"; sourceTree = "<group>"; };
 		7433759B1FB5A84F0003E249 /* arrawbluegray@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrawbluegray@3x.png"; sourceTree = "<group>"; };
+		74D7CEB81FEAA19D002A0DAD /* AuthEndViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthEndViewController.h; sourceTree = "<group>"; };
+		74D7CEB91FEAA19D002A0DAD /* AuthEndViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthEndViewController.m; sourceTree = "<group>"; };
+		74D7CEBB1FEAA9BA002A0DAD /* AuthNotPassReasonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuthNotPassReasonViewController.h; sourceTree = "<group>"; };
+		74D7CEBC1FEAA9BA002A0DAD /* AuthNotPassReasonViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuthNotPassReasonViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -2445,6 +2472,7 @@
 		0897471E1DFFE9D1004C08E4 /* 我 */ = {
 			isa = PBXGroup;
 			children = (
+				742068D51FEA63B70043A0F5 /* 认证 */,
 				08B8A97D1E5D748C0015CF01 /* 我的钱包 */,
 				0844327C1E5C1CB500DDEAD1 /* 我的举报 */,
 				082357891E52AE5A0028AA9E /* 个人中心 */,
@@ -3497,6 +3525,7 @@
 		08DE3EC11E13BA3C006C0CAD /* setting */ = {
 			isa = PBXGroup;
 			children = (
+				742068D41FEA61BC0043A0F5 /* author */,
 				08DE3EC21E13BA5D006C0CAD /* MyPersonViewController.h */,
 				08DE3EC31E13BA5D006C0CAD /* MyPersonViewController.m */,
 				08DE3EBE1E13B5AF006C0CAD /* MySettingViewController.h */,
@@ -3712,6 +3741,35 @@
 			path = YBPopupMenu;
 			sourceTree = "<group>";
 		};
+		742068D41FEA61BC0043A0F5 /* author */ = {
+			isa = PBXGroup;
+			children = (
+				742068D11FEA61B80043A0F5 /* AuthBusinessViewController.h */,
+				742068D21FEA61B80043A0F5 /* AuthBusinessViewController.m */,
+				74D7CEB81FEAA19D002A0DAD /* AuthEndViewController.h */,
+				74D7CEB91FEAA19D002A0DAD /* AuthEndViewController.m */,
+				74D7CEBB1FEAA9BA002A0DAD /* AuthNotPassReasonViewController.h */,
+				74D7CEBC1FEAA9BA002A0DAD /* AuthNotPassReasonViewController.m */,
+			);
+			name = author;
+			sourceTree = "<group>";
+		};
+		742068D51FEA63B70043A0F5 /* 认证 */ = {
+			isa = PBXGroup;
+			children = (
+				742068DB1FEA63CA0043A0F5 /* me审核通过.png */,
+				742068DA1FEA63CA0043A0F5 /* me审核通过@2x.png */,
+				742068D61FEA63C90043A0F5 /* me审核通过@3x.png */,
+				742068D71FEA63C90043A0F5 /* me审核未通过.png */,
+				742068D81FEA63C90043A0F5 /* me审核未通过@2x.png */,
+				742068DE1FEA63CA0043A0F5 /* me审核未通过@3x.png */,
+				742068D91FEA63CA0043A0F5 /* me审核中.png */,
+				742068DC1FEA63CA0043A0F5 /* me审核中@2x.png */,
+				742068DD1FEA63CA0043A0F5 /* me审核中@3x.png */,
+			);
+			name = "认证";
+			sourceTree = "<group>";
+		};
 		743375861FB580800003E249 /* MyMetting */ = {
 			isa = PBXGroup;
 			children = (
@@ -3843,6 +3901,7 @@
 				743375831FB578920003E249 /* 签到成功.png in Resources */,
 				088FE3C31E10C13200AF874D /* nearby_colockblue@3x.png in Resources */,
 				08009D371EB1D7E400F537F6 /* hp_附近商家whiteicon.png in Resources */,
+				742068E01FEA63CA0043A0F5 /* me审核未通过.png in Resources */,
 				0879B37C1E656F4E0007518B /* locationgrayicon@3x.png in Resources */,
 				088FE3C41E10C13200AF874D /* nearby_select.png in Resources */,
 				7433759E1FB5A84F0003E249 /* arrawbluegray.png in Resources */,
@@ -3953,6 +4012,7 @@
 				089747C91DFFE9D1004C08E4 /* me_我的订单.png in Resources */,
 				089748051DFFE9D1004C08E4 /* login_weixinicon.png in Resources */,
 				08AC8FA91DFFFDF000F34595 /* regiest_pic1.png in Resources */,
+				742068E71FEA63CA0043A0F5 /* me审核未通过@3x.png in Resources */,
 				089748421DFFE9D1004C08E4 /* 附近blue@2x.png in Resources */,
 				089747C31DFFE9D1004C08E4 /* me_我的收藏.png in Resources */,
 				08B87DC51E35ED4F001B2954 /* me_xuxian@2x.png in Resources */,
@@ -3965,6 +4025,7 @@
 				7433759F1FB5A84F0003E249 /* arrawgray.png in Resources */,
 				083908BA1E248C9800809E73 /* hp_searchblue@2x.png in Resources */,
 				089747F51DFFE9D1004C08E4 /* login_alipayicon@3x.png in Resources */,
+				742068E31FEA63CA0043A0F5 /* me审核通过@2x.png in Resources */,
 				08974F2E1DFFEA30004C08E4 /* MBProgressHUD.bundle in Resources */,
 				085A7EAB1E6980F300ABFEBF /* 4xin@2x.png in Resources */,
 				0879B3751E65437E0007518B /* Overlay.png in Resources */,
@@ -3988,6 +4049,7 @@
 				0897484A1DFFE9D1004C08E4 /* 首页gray.png in Resources */,
 				08FBDBE51E49A61C00920CB5 /* me_collectionselect.png in Resources */,
 				08AC8FAA1DFFFDF000F34595 /* regiest_pic1@2x.png in Resources */,
+				742068E41FEA63CA0043A0F5 /* me审核通过.png in Resources */,
 				08B8A9811E5D74990015CF01 /* mywalletincomeicon.png in Resources */,
 				08FBDBE71E49A61C00920CB5 /* me_collectionselect@3x.png in Resources */,
 				084BA1CB1E880D2700B2AFEA /* 已收藏@2x.png in Resources */,
@@ -4023,8 +4085,10 @@
 				08C4C8B81E2BABBE00BCAEBE /* me_赚积分@3x.png in Resources */,
 				088FE3C21E10C13200AF874D /* nearby_colockblue@2x.png in Resources */,
 				089747D21DFFE9D1004C08E4 /* accept_商家icon.png in Resources */,
+				742068DF1FEA63CA0043A0F5 /* me审核通过@3x.png in Resources */,
 				7433757D1FB578920003E249 /* 我的会议@2x.png in Resources */,
 				08F7A2391E6449DD004E51A5 /* starrate@2x.png in Resources */,
+				742068E51FEA63CA0043A0F5 /* me审核中@2x.png in Resources */,
 				089748341DFFE9D1004C08E4 /* 我的blue@3x.png in Resources */,
 				0811A6651E276DB2002D5CA1 /* QR_手工输入@2x.png in Resources */,
 				08FD7A951E2C927700F09E4A /* me_walletselect@3x.png in Resources */,
@@ -4060,6 +4124,7 @@
 				082357921E52AF370028AA9E /* me_shopcarweixin@3x.png in Resources */,
 				0804A9DD1E015C9F00F52CD5 /* regiest_back@3x.png in Resources */,
 				089747F71DFFE9D1004C08E4 /* login_appicon@2x.png in Resources */,
+				742068E61FEA63CA0043A0F5 /* me审核中@3x.png in Resources */,
 				089748171DFFE9D1004C08E4 /* nearby_箭头black.png in Resources */,
 				089747DF1DFFE9D1004C08E4 /* regiest_2gray@2x.png in Resources */,
 				088FE3BE1E10C13200AF874D /* nearby_arrow1.png in Resources */,
@@ -4151,6 +4216,7 @@
 				081DCDC51E7436770021A4CD /* 无经纬度@2x.png in Resources */,
 				089747DB1DFFE9D1004C08E4 /* regiest_2blue.png in Resources */,
 				089747C01DFFE9D1004C08E4 /* me_客服中心.png in Resources */,
+				742068E11FEA63CA0043A0F5 /* me审核未通过@2x.png in Resources */,
 				089747EC1DFFE9D1004C08E4 /* regiest_下拉@3x.png in Resources */,
 				083908B61E248C9800809E73 /* hp_locationicon.png in Resources */,
 				08F086C71E6FF5AA00C1C372 /* README.txt in Resources */,
@@ -4174,6 +4240,7 @@
 				089748121DFFE9D1004C08E4 /* nearby_工商@2x.png in Resources */,
 				089748181DFFE9D1004C08E4 /* nearby_箭头black@2x.png in Resources */,
 				089747CF1DFFE9D1004C08E4 /* me_箭头右.png in Resources */,
+				742068E21FEA63CA0043A0F5 /* me审核中.png in Resources */,
 				0897482E1DFFE9D1004C08E4 /* hp_通知icon@3x.png in Resources */,
 				0897480B1DFFE9D1004C08E4 /* nearby_maplist.png in Resources */,
 				082357901E52AF370028AA9E /* me_shopcarweixin.png in Resources */,
@@ -4210,6 +4277,7 @@
 				08AAB4A51E51C57B00B07B29 /* MyInputOrderViewController.m in Sources */,
 				083A3CEF1E6806CB00D6DC36 /* SelectAddrNotAddressViewController.m in Sources */,
 				089750771DFFEA31004C08E4 /* VPImageCropperViewController.m in Sources */,
+				74D7CEBD1FEAA9BA002A0DAD /* AuthNotPassReasonViewController.m in Sources */,
 				08974F131DFFEA30004C08E4 /* MJRefreshNormalHeader.m in Sources */,
 				08974F141DFFEA30004C08E4 /* MJRefreshStateHeader.m in Sources */,
 				089FA6651E4D581E00EE6DC0 /* SelectAddressViewController.m in Sources */,
@@ -4217,6 +4285,7 @@
 				08974ECC1DFFEA30004C08E4 /* ChineseString.m in Sources */,
 				085E0A4B1E165844009B74C1 /* UIView+IBExtension.m in Sources */,
 				0897508A1DFFEA31004C08E4 /* UserInfo.m in Sources */,
+				74D7CEBA1FEAA19D002A0DAD /* AuthEndViewController.m in Sources */,
 				083E56691E4B0156007F3B7E /* ModifyPersonInfoViewController.m in Sources */,
 				088FE3D51E1117EE00AF874D /* NearByCompanyMsgView.m in Sources */,
 				7406B8081FC40D0B0056372C /* YBRectConst.m in Sources */,
@@ -4293,6 +4362,7 @@
 				0897508B1DFFEA31004C08E4 /* AddInterface.m in Sources */,
 				0897470B1DFFE994004C08E4 /* AppDelegate.m in Sources */,
 				0827F5E51E6D5D2B000E4BEC /* CertificationInfoViewController.m in Sources */,
+				742068D31FEA61B90043A0F5 /* AuthBusinessViewController.m in Sources */,
 				089750761DFFEA31004C08E4 /* VBTextView.m in Sources */,
 				08974E9D1DFFEA30004C08E4 /* BaseAnimation.m in Sources */,
 				083A3CF21E6811E200D6DC36 /* RegiestSuccessViewController.m in Sources */,

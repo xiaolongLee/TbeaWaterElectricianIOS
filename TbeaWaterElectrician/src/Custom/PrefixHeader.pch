@@ -126,6 +126,9 @@
 #import "MyMettingListViewController.h"
 #import "MyMettingDetailViewController.h"
 #import "YBPopupMenu.h"
+#import "AuthBusinessViewController.h"
+#import "AuthEndViewController.h"
+#import "AuthNotPassReasonViewController.h"
 
 #import <BaiduMapAPI_Location/BMKLocationComponent.h>
 #define APP_KEY @"AijaDHgBnG7q9GEUwBQVsNAv"
