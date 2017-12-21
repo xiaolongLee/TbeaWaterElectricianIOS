@@ -158,10 +158,6 @@
 		case 0:
 			labeltitle.text = @"个人消息";
 			break;
-//		case 1:
-//			labeltitle.text = @"消息提醒设置";
-//			
-//			break;
 		case 1:
 			floatsize = [AddInterface folderSizeAtPath:Cache_path];
 //			floatdocment = [AddInterface folderSizeAtPath:DOCUMENTS_FOLDER];
@@ -170,10 +166,6 @@
 			labelvalue.text =[NSString stringWithFormat:@"%0.1f M",floatsize-7.7>0?floatsize-7.7:0.1];
 			[cell.contentView addSubview:labelvalue];
 			break;
-//		case 3:
-//			labeltitle.text = @"图片质量";
-//			
-//			break;
 		case 2:
 			labeltitle.text = @"帐户安全";
 			

@@ -130,7 +130,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return 8;
+	return 11;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -215,11 +215,25 @@
 			[cell.contentView addSubview:labelvalue];
 			break;
         case 7:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            labeltitle.text = @"所在地";
+            [cell.contentView addSubview:labelvalue];
+            break;
+        case 8:
             labeltitle.text = @"隶属";
             labelvalue.text = [dicuserinfo objectForKey:@"companyname"];
             [cell.contentView addSubview:labelvalue];
             break;
-			
+        case 9:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            labeltitle.text = @"服务范围";
+            [cell.contentView addSubview:labelvalue];
+            break;
+        case 10:
+            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            labeltitle.text = @"个人介绍";
+            [cell.contentView addSubview:labelvalue];
+            break;
 			
 	}
 	
@@ -258,6 +272,11 @@
 			addaddr.fromaddr = @"1";
 			[self.navigationController pushViewController:addaddr animated:YES];
 			break;
+        case 7:
+//            addaddr = [[ReceiveAddrViewController alloc] init];
+//            addaddr.fromaddr = @"1";
+//            [self.navigationController pushViewController:addaddr animated:YES];
+            break;
 	}
 }
 
@@ -426,11 +445,17 @@
 	[app.window addSubview:viewsheet];
 	
 	UIPickerView *picview = (UIPickerView *)[app.window viewWithTag:9990];
-	[picview selectRow:[content0 count]/2 inComponent:0 animated:NO];
-    [picview selectRow:[content1 count]/2 inComponent:1 animated:NO];
-    result0  = [content0 objectAtIndex:[content0 count]/2];
-	result1  = [content1 objectAtIndex:[content1 count]/2];
-	
+    if(sender == 2)
+    {
+        result1 = [content1 objectAtIndex:0];
+    }
+    else if(sender == 3)
+    {
+        [picview selectRow:[content0 count]/2 inComponent:0 animated:NO];
+        [picview selectRow:[content1 count]/2 inComponent:1 animated:NO];
+        result0  = [content0 objectAtIndex:[content0 count]/2];
+        result1  = [content1 objectAtIndex:[content1 count]/2];
+    }
 	[UIView animateWithDuration:0.3 animations:^{
 		maskView.alpha = 0.3;
 		viewsheet.frame = CGRectMake(viewsheet.frame.origin.x, SCREEN_HEIGHT-viewsheet.frame.size.height, viewsheet.frame.size.width, viewsheet.frame.size.height);
